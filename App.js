@@ -1,13 +1,14 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, FlatList, View, Button } from "react-native";
 import { useState, useEffect } from "react";
 import * as ScreenOrientation from "expo-screen-orientation";
 import Constants from "expo-constants";
-import changeNavigationBarColor from "react-native-navigation-bar-color";
 import * as NavigationBar from "expo-navigation-bar";
+import { PLAYER_COLORS } from "./constants";
+import PlayerContainer from "./components/PlayerContainer";
 
 export default function App() {
   const [orientation, setOrientation] = useState(1);
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     lockOrientation();
@@ -15,6 +16,14 @@ export default function App() {
     NavigationBar.setVisibilityAsync("hidden");
     NavigationBar.setBehaviorAsync("inset-swipe");
     NavigationBar.setBackgroundColorAsync("black");
+
+    setPlayers((currentPlayers) => [
+      {
+        text: "Player",
+        color: PLAYER_COLORS[0].colorCode,
+        id: Math.random().toString(),
+      },
+    ]);
   }, []);
 
   const lockOrientation = async () => {
@@ -25,17 +34,35 @@ export default function App() {
     setOrientation(o);
   };
 
-  const setNavigationBarColor = async () => {
-    if (Platform.OS === "android") {
-      await NavigationBar.setBackgroundColorAsync("black"); // Match your app's background
-      await NavigationBar.setVisibilityAsync("hidden"); // Hide if you want a fullscreen look
-    }
+  const addNewPlayer = () => {
+    console.log("adding");
+    setPlayers((currentPlayers) => [
+      ...currentPlayers,
+      {
+        text: "Player",
+        color: PLAYER_COLORS[0].colorCode,
+        id: Math.random().toString(),
+      },
+    ]);
+  };
+
+  const deleteAPlayer = () => {
+    setPlayers((currentPlayers) => [
+      currentPlayers.filter((player) => player.id !== currentPlayers[0].id),
+    ]);
   };
 
   return (
     <SafeAreaView style={styles.appContainer}>
-      <View style={styles.optionsBarContainer}></View>
-      <View style={styles.playersContainer}></View>
+      <View style={styles.optionsBarContainer}>
+        <Button width="" title="add" onPress={addNewPlayer}></Button>
+        <Button title="delete" onPress={deleteAPlayer}></Button>
+      </View>
+      <View style={styles.playersContainer}>
+        {players.map((player) => (
+          <PlayerContainer key={player.id} />
+        ))}
+      </View>
     </SafeAreaView>
   );
 }
@@ -52,10 +79,20 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     backgroundColor: "gray",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    flexDirection: "row",
   },
   playersContainer: {
     width: "100%",
     flex: 10,
-    backgroundColor: "black",
+    backgroundColor: "white",
+    padding: 32,
+    borderWidth: 6,
+    borderColor: "red",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexWrap:"wrap"
   },
 });
