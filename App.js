@@ -60,7 +60,7 @@ export default function App() {
       </View>
       <View style={styles.playersContainer}>
         {players.map((player) => (
-          <PlayerContainer key={player.id} />
+          <PlayerContainer key={player.id} playerCount={players.length} />
         ))}
       </View>
     </SafeAreaView>
@@ -87,12 +87,13 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 10,
     backgroundColor: "white",
-    padding: 32,
+    padding: 5,
     borderWidth: 6,
     borderColor: "red",
     flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    flexWrap:"wrap"
+    justifyContent: "center",
+    alignItems: "space-evenly",
+    flexWrap: "wrap",
+    gap: 12,
   },
 });
