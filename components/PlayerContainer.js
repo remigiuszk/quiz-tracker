@@ -3,23 +3,27 @@ import PlayerScore from "./Player/PlayerScore";
 import PlayerTile from "./Player/PlayerTile";
 import PlayerName from "./Player/PlayerName";
 import { useEffect, useState } from "react";
+import { THEME, STYLES } from "./../constants";
 
 const PlayerContainer = ({ player, playerCount }) => {
   const [containerDimensions, setContainerDimensions] = useState({
-    width: "50%",
-    height: "60%",
+    width: "40%",
+    height: "85%",
   });
 
   useEffect(() => {
     switch (playerCount) {
       case 1:
-        setContainerDimensions({ width: "50%", height: "60%" });
+        setContainerDimensions({ width: "40%", height: "85%" });
         break;
       case 2:
-        setContainerDimensions({ width: "40%", height: "20%" });
+        setContainerDimensions({ width: "40%", height: "85%" });
+        break;
+      case 3:
+        setContainerDimensions({ width: "30%", height: "85%" });
         break;
       default:
-        setContainerDimensions({ width: "20%", height: "20%" });
+        setContainerDimensions({ width: "25%", height: "45%" });
         break;
     }
   }, [playerCount]);
@@ -32,11 +36,12 @@ const PlayerContainer = ({ player, playerCount }) => {
           width: containerDimensions.width,
           height: containerDimensions.height,
         },
+        STYLES.shadow,
       ]}
     >
-      <PlayerName style={styles.playerName} />
-      <PlayerTile style={styles.playerTile} />
-      <PlayerScore style={styles.playerScore} />
+      <PlayerName name={player.name}/>
+      <PlayerTile color={player.color}/>
+      <PlayerScore  />
     </View>
   );
 };
@@ -44,13 +49,11 @@ const PlayerContainer = ({ player, playerCount }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
-    backgroundColor: "adb5bd",
-    borderWidth: 6,
-    borderColor: "blue",
+    backgroundColor: THEME.foreground,
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  playerName: { width: "100%", flex: 1 },
-  playerTile: { width: "100%", flex: 3 },
-  playerScore: { width: "100%", flex: 1 },
 });
 
 export default PlayerContainer;

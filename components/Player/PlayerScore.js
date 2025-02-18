@@ -11,8 +11,8 @@ const PlayerScore = () => {
 };
 
 const styles = StyleSheet.create({
-  scoreContainer: {},
-  scoreInput: {},
+  scoreContainer: { flex: 1, height: "100%" },
+  scoreInput: { textAlign: "center" },
 });
 
 export default PlayerScore;

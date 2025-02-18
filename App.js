@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import * as ScreenOrientation from "expo-screen-orientation";
 import Constants from "expo-constants";
 import * as NavigationBar from "expo-navigation-bar";
-import { PLAYER_COLORS } from "./constants";
+import { PLAYER_COLORS, THEME, STYLES } from "./constants";
 import PlayerContainer from "./components/PlayerContainer";
 
 export default function App() {
@@ -16,14 +16,6 @@ export default function App() {
     NavigationBar.setVisibilityAsync("hidden");
     NavigationBar.setBehaviorAsync("inset-swipe");
     NavigationBar.setBackgroundColorAsync("black");
-
-    setPlayers((currentPlayers) => [
-      {
-        text: "Player",
-        color: PLAYER_COLORS[0].colorCode,
-        id: Math.random().toString(),
-      },
-    ]);
   }, []);
 
   const lockOrientation = async () => {
@@ -35,12 +27,11 @@ export default function App() {
   };
 
   const addNewPlayer = () => {
-    console.log("adding");
     setPlayers((currentPlayers) => [
       ...currentPlayers,
       {
-        text: "Player",
-        color: PLAYER_COLORS[0].colorCode,
+        name: "Player" + (currentPlayers.length + 1),
+        color: PLAYER_COLORS[currentPlayers.length].colorCode,
         id: Math.random().toString(),
       },
     ]);
@@ -53,14 +44,18 @@ export default function App() {
   };
 
   return (
-    <SafeAreaView style={styles.appContainer}>
-      <View style={styles.optionsBarContainer}>
+    <SafeAreaView style={[styles.appContainer, STYLES.shadow]}>
+      <View style={[styles.optionsBarContainer, STYLES.shadow]}>
         <Button width="" title="add" onPress={addNewPlayer}></Button>
         <Button title="delete" onPress={deleteAPlayer}></Button>
       </View>
       <View style={styles.playersContainer}>
         {players.map((player) => (
-          <PlayerContainer key={player.id} playerCount={players.length} />
+          <PlayerContainer
+            player={player}
+            key={player.id}
+            playerCount={players.length}
+          />
         ))}
       </View>
     </SafeAreaView>
@@ -73,27 +68,26 @@ const styles = StyleSheet.create({
     height: "100%",
     direction: "vertical",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "black",
+    backgroundColor: THEME.foreground,
   },
   optionsBarContainer: {
     width: "100%",
     flex: 1,
-    backgroundColor: "gray",
+    backgroundColor: THEME.foreground,
     justifyContent: "flex-end",
     alignItems: "center",
     flexDirection: "row",
   },
   playersContainer: {
     width: "100%",
+    height: "100%",
     flex: 10,
-    backgroundColor: "white",
-    padding: 5,
-    borderWidth: 6,
-    borderColor: "red",
+    backgroundColor: THEME.background,
+    padding: 6,
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "space-evenly",
+    justifyContent: "space-around",
     flexWrap: "wrap",
+    alignContent: "center",
     gap: 12,
   },
 });

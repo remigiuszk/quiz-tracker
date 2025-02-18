@@ -1,13 +1,25 @@
 import { useState } from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { THEME } from "./../../constants";
 
-const PlayerName = () => {
-    const [name, setName] = useState("Player 1");
+const PlayerName = ({ name }) => {
   return (
-    <View>
-      <Text>Player 1</Text>
+    <View style={styles.textContainer}>
+      <Text style={styles.playerText}>{name}</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  textContainer: {
+    width: "100%",
+    padding: 8,
+  },
+  playerText: {
+    color: THEME.text,
+    fontSize: 20,
+    textAlign: "center",
+  },
+});
 
 export default PlayerName;
