@@ -5,17 +5,17 @@ import Constants from "expo-constants";
 import * as NavigationBar from "expo-navigation-bar";
 import { PLAYER_COLORS, THEME, STYLES } from "./constants";
 import PlayerContainer from "./components/PlayerContainer";
+import * as Font from 'expo-font';
 
 export default function App() {
   const [orientation, setOrientation] = useState(1);
   const [players, setPlayers] = useState([]);
+  const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
     lockOrientation();
-    NavigationBar.setPositionAsync("relative");
-    NavigationBar.setVisibilityAsync("hidden");
-    NavigationBar.setBehaviorAsync("inset-swipe");
-    NavigationBar.setBackgroundColorAsync("black");
+    initLayout();
+    loadFont();
   }, []);
 
   const lockOrientation = async () => {
@@ -25,6 +25,20 @@ export default function App() {
     const o = await ScreenOrientation.getOrientationAsync();
     setOrientation(o);
   };
+
+  const initLayout = () => {
+    NavigationBar.setPositionAsync("relative");
+    NavigationBar.setVisibilityAsync("hidden");
+    NavigationBar.setBehaviorAsync("inset-swipe");
+    NavigationBar.setBackgroundColorAsync("black");
+  };
+
+  async function loadFont() {
+    await Font.loadAsync({
+      DigitalClock: require("./assets/fonts/led_sas.ttf"),
+    });
+    setFontLoaded(true);
+  }
 
   const addNewPlayer = () => {
     setPlayers((currentPlayers) => [
@@ -42,6 +56,10 @@ export default function App() {
       currentPlayers.filter((player) => player.id !== currentPlayers[0].id),
     ]);
   };
+
+  if (!fontLoaded) {
+    return null; //spinner
+  }
 
   return (
     <SafeAreaView style={[styles.appContainer, STYLES.shadow]}>

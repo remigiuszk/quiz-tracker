@@ -39,9 +39,9 @@ const PlayerContainer = ({ player, playerCount }) => {
         STYLES.shadow,
       ]}
     >
-      <PlayerName name={player.name}/>
-      <PlayerTile color={player.color}/>
-      <PlayerScore  />
+      <PlayerName name={player.name} />
+      <PlayerTile color={player.color} />
+      <PlayerScore color={player.color} />
     </View>
   );
 };
@@ -52,7 +52,9 @@ const styles = StyleSheet.create({
     backgroundColor: THEME.foreground,
     borderRadius: 5,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-around",
+    gap: 10,
+    padding: 16,
   },
 });
 

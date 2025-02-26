@@ -3,7 +3,9 @@ import { STYLES } from "../../constants";
 
 const PlayerTile = ({ color }) => {
   return (
-    <View style={[styles.playerTile, { backgroundColor: color }]}>
+    <View
+      style={[styles.playerTile, { backgroundColor: color }, STYLES.shadow]}
+    >
       <Image
         style={[styles.playerIcon]}
         source={require("../../assets/img/person.png")}
@@ -17,10 +19,10 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 12,
     overflow: "hidden",
-    flex: 1.75,
-    width: "60%",
+    flex: 3,
+    width: "65%",
   },
-  playerIcon: { flex: 1, resizeMode: "contain", width:"100%" },
+  playerIcon: { flex: 1, resizeMode: "contain", width: "100%" },
 });
 
 export default PlayerTile;

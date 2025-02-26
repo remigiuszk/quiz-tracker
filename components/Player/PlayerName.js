@@ -12,12 +12,12 @@ const PlayerName = ({ name }) => {
 
 const styles = StyleSheet.create({
   textContainer: {
+    flex:1,
     width: "100%",
-    padding: 8,
   },
   playerText: {
     color: THEME.text,
-    fontSize: 20,
+    fontSize: 15,
     textAlign: "center",
   },
 });
