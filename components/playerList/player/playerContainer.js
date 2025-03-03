@@ -1,9 +1,6 @@
 import { StyleSheet, View } from "react-native";
-import PlayerScore from "./Player/PlayerScore";
-import PlayerTile from "./Player/PlayerTile";
-import PlayerName from "./Player/PlayerName";
 import { useEffect, useState } from "react";
-import { THEME, STYLES } from "./../constants";
+import { THEME, STYLES } from "../../../constants";
 
 const PlayerContainer = ({ player, playerCount }) => {
   const [containerDimensions, setContainerDimensions] = useState({
@@ -41,7 +38,7 @@ const PlayerContainer = ({ player, playerCount }) => {
     >
       <PlayerName name={player.name} />
       <PlayerTile color={player.color} />
-      <PlayerScore color={player.color} />
+      <PlayerScore color={player.color} score={player.score} />
     </View>
   );
 };

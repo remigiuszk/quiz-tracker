@@ -1,61 +1,12 @@
 import { SafeAreaView, StyleSheet, FlatList, View, Button } from "react-native";
-import { useState, useEffect } from "react";
-import * as ScreenOrientation from "expo-screen-orientation";
 import Constants from "expo-constants";
-import * as NavigationBar from "expo-navigation-bar";
-import { PLAYER_COLORS, THEME, STYLES } from "./constants";
-import PlayerContainer from "./components/PlayerContainer";
-import * as Font from 'expo-font';
+import { THEME, STYLES } from "./constants";
+import useInitializeApp from "./hooks/useInitializeApp";
+import OptionsBar from "./components/optionsBar/optionsBar";
+import PlayerList from "./components/playerList/playerList";
 
 export default function App() {
-  const [orientation, setOrientation] = useState(1);
-  const [players, setPlayers] = useState([]);
-  const [fontLoaded, setFontLoaded] = useState(false);
-
-  useEffect(() => {
-    lockOrientation();
-    initLayout();
-    loadFont();
-  }, []);
-
-  const lockOrientation = async () => {
-    await ScreenOrientation.lockAsync(
-      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
-    );
-    const o = await ScreenOrientation.getOrientationAsync();
-    setOrientation(o);
-  };
-
-  const initLayout = () => {
-    NavigationBar.setPositionAsync("relative");
-    NavigationBar.setVisibilityAsync("hidden");
-    NavigationBar.setBehaviorAsync("inset-swipe");
-    NavigationBar.setBackgroundColorAsync("black");
-  };
-
-  async function loadFont() {
-    await Font.loadAsync({
-      DigitalClock: require("./assets/fonts/led_sas.ttf"),
-    });
-    setFontLoaded(true);
-  }
-
-  const addNewPlayer = () => {
-    setPlayers((currentPlayers) => [
-      ...currentPlayers,
-      {
-        name: "Player" + (currentPlayers.length + 1),
-        color: PLAYER_COLORS[currentPlayers.length].colorCode,
-        id: Math.random().toString(),
-      },
-    ]);
-  };
-
-  const deleteAPlayer = () => {
-    setPlayers((currentPlayers) => [
-      currentPlayers.filter((player) => player.id !== currentPlayers[0].id),
-    ]);
-  };
+  const { fontLoaded } = useInitializeApp();
 
   if (!fontLoaded) {
     return null; //spinner
@@ -63,19 +14,8 @@ export default function App() {
 
   return (
     <SafeAreaView style={[styles.appContainer, STYLES.shadow]}>
-      <View style={[styles.optionsBarContainer, STYLES.shadow]}>
-        <Button width="" title="add" onPress={addNewPlayer}></Button>
-        <Button title="delete" onPress={deleteAPlayer}></Button>
-      </View>
-      <View style={styles.playersContainer}>
-        {players.map((player) => (
-          <PlayerContainer
-            player={player}
-            key={player.id}
-            playerCount={players.length}
-          />
-        ))}
-      </View>
+      <OptionsBar />
+      <PlayerList />
     </SafeAreaView>
   );
 }
@@ -87,25 +27,5 @@ const styles = StyleSheet.create({
     direction: "vertical",
     paddingTop: Constants.statusBarHeight,
     backgroundColor: THEME.foreground,
-  },
-  optionsBarContainer: {
-    width: "100%",
-    flex: 1,
-    backgroundColor: THEME.foreground,
-    justifyContent: "flex-end",
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  playersContainer: {
-    width: "100%",
-    height: "100%",
-    flex: 10,
-    backgroundColor: THEME.background,
-    padding: 6,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    flexWrap: "wrap",
-    alignContent: "center",
-    gap: 12,
   },
 });

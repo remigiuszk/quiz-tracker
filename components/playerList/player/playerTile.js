@@ -1,5 +1,5 @@
 import { StyleSheet, View, Image } from "react-native";
-import { STYLES } from "../../constants";
+import { STYLES } from "../../../constants";
 
 const PlayerTile = ({ color }) => {
   return (
