@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { THEME, STYLES } from "./../../constants";
+import { THEME } from "../../../constants";
 
 const PlayerScore = ({ color }) => {
   return (

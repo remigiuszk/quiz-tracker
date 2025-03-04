@@ -1,28 +1,19 @@
 import { Button, StyleSheet, View } from "react-native";
 import { PLAYER_COLORS, STYLES, THEME } from "../../constants";
+import { useDispatch } from "react-redux";
+import { addNewPlayer, resetPlayers } from "../../state/players/playersSlice";
 
 const OptionsBar = () => {
-  const addNewPlayer = () => {
-    setPlayers((currentPlayers) => [
-      ...currentPlayers,
-      {
-        name: "Player" + (currentPlayers.length + 1),
-        color: PLAYER_COLORS[currentPlayers.length].colorCode,
-        id: Math.random().toString(),
-        score: 0,
-      },
-    ]);
-  };
+  const dispatch = useDispatch();
 
-  const deleteAPlayer = () => {
-    setPlayers((currentPlayers) => [
-      currentPlayers.filter((player) => player.id !== currentPlayers[0].id),
-    ]);
-  };
   return (
     <View style={[styles.optionsBarContainer, STYLES.shadow]}>
-      <Button width="" title="add" onPress={addNewPlayer}></Button>
-      <Button title="delete" onPress={deleteAPlayer}></Button>
+      <Button
+        width=""
+        title="add"
+        onPress={() => dispatch(addNewPlayer())}
+      ></Button>
+      <Button title="delete" onPress={() => dispatch(resetPlayers())}></Button>
     </View>
   );
 };

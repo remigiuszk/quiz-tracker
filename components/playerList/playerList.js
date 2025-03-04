@@ -1,10 +1,14 @@
 import { StyleSheet, View } from "react-native";
-import { PlayerContainer } from "./player/playerContainer";
+import PlayerContainer from "./player/playerContainer";
 import { THEME } from "../../constants";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const PlayerList = () => {
-  const [players, setPlayers] = useState([]);
+  const players = useSelector((state) => state.players.playerList);
+
+  if (!players || !Array.isArray(players) || players.length === 0) {
+    return null;
+  }
 
   return (
     <View style={styles.playersContainer}>
