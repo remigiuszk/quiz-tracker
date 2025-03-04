@@ -4,6 +4,8 @@ import { THEME, STYLES } from "./constants";
 import useInitializeApp from "./hooks/useInitializeApp";
 import OptionsBar from "./components/optionsBar/optionsBar";
 import PlayerList from "./components/playerList/playerList";
+import { Provider } from "react-redux";
+import { store } from "./state/store";
 
 export default function App() {
   const { fontLoaded } = useInitializeApp();
@@ -13,10 +15,12 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={[styles.appContainer, STYLES.shadow]}>
-      <OptionsBar />
-      <PlayerList />
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={[styles.appContainer, STYLES.shadow]}>
+        <OptionsBar />
+        <PlayerList />
+      </SafeAreaView>
+    </Provider>
   );
 }
 

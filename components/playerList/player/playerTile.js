@@ -8,7 +8,7 @@ const PlayerTile = ({ color }) => {
     >
       <Image
         style={[styles.playerIcon]}
-        source={require("../../assets/img/person.png")}
+        source={require("../../../assets/img/person.png")}
       ></Image>
     </View>
   );

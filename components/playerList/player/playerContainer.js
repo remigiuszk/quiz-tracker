@@ -1,6 +1,9 @@
 import { StyleSheet, View } from "react-native";
 import { useEffect, useState } from "react";
 import { THEME, STYLES } from "../../../constants";
+import PlayerName from "./playerName";
+import PlayerTile from "./playerTile";
+import PlayerScore from "./playerScore";
 
 const PlayerContainer = ({ player, playerCount }) => {
   const [containerDimensions, setContainerDimensions] = useState({

@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { THEME } from "./../../constants";
+import { THEME } from "../../../constants";
 
 const PlayerName = ({ name }) => {
   return (
