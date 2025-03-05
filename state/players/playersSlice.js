@@ -36,9 +36,12 @@ const playersSlice = createSlice({
     resetPlayers: (state) => {
       state.playerList = initialState.playerList;
     },
+    incrementPlayerScore: (state) => {
+      state.playerList[0].score = state.playerList[0].score + 1;
+    },
   },
 });
 
-export const { addNewPlayer, resetPlayers } = playersSlice.actions;
+export const { addNewPlayer, resetPlayers, incrementPlayerScore } = playersSlice.actions;
 
 export default playersSlice.reducer;

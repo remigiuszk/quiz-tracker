@@ -1,15 +1,22 @@
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, Pressable } from "react-native";
 import { STYLES } from "../../../constants";
+import { useDispatch } from "react-redux";
+import { incrementPlayerScore } from "../../../state/players/playersSlice";
 
-const PlayerTile = ({ color }) => {
+const PlayerTile = ({ color, id }) => {
+  const dispatch = useDispatch();
+
   return (
     <View
       style={[styles.playerTile, { backgroundColor: color }, STYLES.shadow]}
     >
-      <Image
-        style={[styles.playerIcon]}
-        source={require("../../../assets/img/person.png")}
-      ></Image>
+      <Pressable android_ripple={{ color: "#dddddd" }}
+      onPress={dispatch(incrementPlayerScore())}>
+        <Image
+          style={[styles.playerIcon]}
+          source={require("../../../assets/img/person.png")}
+        ></Image>
+      </Pressable>
     </View>
   );
 };

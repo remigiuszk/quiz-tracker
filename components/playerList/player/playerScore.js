@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import { THEME } from "../../../constants";
 
-const PlayerScore = ({ color }) => {
+const PlayerScore = ({ color, score }) => {
   return (
     <View style={[styles.scoreContainer, { borderColor: color }]}>
       <Text style={[styles.scoreInput, { color: color }]} editable={false}>
-        55
+        {score}
       </Text>
     </View>
   );
