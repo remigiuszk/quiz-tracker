@@ -20,6 +20,7 @@
     "react-native": "0.76.6",
     "react-native-immersive-mode": "^2.0.2",
     "react-native-navigation-bar-color": "^2.0.2",
+    "react-native-uuid": "^2.0.3",
     "react-redux": "^9.2.0"
   },
   "devDependencies": {

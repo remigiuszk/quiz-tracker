@@ -1,18 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PLAYER_COLORS } from "../../constants";
+import uuid from "react-native-uuid";
 
 const initialState = {
   playerList: [
     {
       name: "Player 1",
       color: PLAYER_COLORS[0].colorCode,
-      id: Math.random().toString(),
+      id: uuid.v4(),
       score: 0,
     },
     {
       name: "Player 2",
       color: PLAYER_COLORS[1].colorCode,
-      id: Math.random().toString(),
+      id: uuid.v4(),
       score: 0,
     },
   ],
@@ -28,20 +29,30 @@ const playersSlice = createSlice({
         {
           name: "Player" + (state.playerList.length + 1),
           color: PLAYER_COLORS[state.playerList.length + 1].colorCode,
-          id: Math.random().toString(),
+          id: uuid.v4(),
           score: 0,
         },
       ];
     },
     resetPlayers: (state) => {
-      state.playerList = initialState.playerList;
+      state.playerList = [...initialState.playerList];
     },
-    incrementPlayerScore: (state) => {
-      state.playerList[0].score = state.playerList[0].score + 1;
+    incrementPlayerScore: (state, action) => {
+      console.log(action);
+      state.playerList = state.playerList.map((player, i) => {
+        player.id === action.payload
+          ? { ...player, score: player.score + 1 }
+          : player;
+      });
+      const targetPlayer = state.playerList.filter(
+        (player) => player.id == action.payload
+      );
+      console.log(targetPlayer.score);
     },
   },
 });
 
-export const { addNewPlayer, resetPlayers, incrementPlayerScore } = playersSlice.actions;
+export const { addNewPlayer, resetPlayers, incrementPlayerScore } =
+  playersSlice.actions;
 
 export default playersSlice.reducer;

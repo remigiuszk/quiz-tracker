@@ -10,8 +10,13 @@ const PlayerTile = ({ color, id }) => {
     <View
       style={[styles.playerTile, { backgroundColor: color }, STYLES.shadow]}
     >
-      <Pressable android_ripple={{ color: "#dddddd" }}
-      onPress={dispatch(incrementPlayerScore())}>
+      <Pressable
+        android_ripple={{ color: "#dddddd" }}
+        onPress={() => {
+          console.log("Pressed! ID:", id); // ✅ Debugging log
+          dispatch(incrementPlayerScore(id));
+        }}
+      >
         <Image
           style={[styles.playerIcon]}
           source={require("../../../assets/img/person.png")}
