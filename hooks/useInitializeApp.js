@@ -14,7 +14,9 @@ export default function useInitializeApp() {
   }, []);
 
   const lockOrientation = async () => {
-    await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT);
+    await ScreenOrientation.lockAsync(
+      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
+    );
     const o = await ScreenOrientation.getOrientationAsync();
     setOrientation(o);
   };
@@ -28,7 +30,7 @@ export default function useInitializeApp() {
 
   const loadFont = async () => {
     await Font.loadAsync({
-      DigitalClock: require("../assets/fonts/led_sas.ttf"),
+      DigitalClock: require("../assets/fonts/ds-digi.ttf"),
     });
     setFontLoaded(true);
   };

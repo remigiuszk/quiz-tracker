@@ -41,7 +41,11 @@ const PlayerContainer = ({ player, playerCount }) => {
     >
       <PlayerName name={player.name} />
       <PlayerTile color={player.color} id={player.id} />
-      <PlayerScore color={player.color} score={player.score} />
+      <PlayerScore
+        color={player.color}
+        score={player.score}
+        playerCount={playerCount}
+      />
     </View>
   );
 };

@@ -11,9 +11,9 @@ const PlayerTile = ({ color, id }) => {
       style={[styles.playerTile, { backgroundColor: color }, STYLES.shadow]}
     >
       <Pressable
+        style={styles.pressable}
         android_ripple={{ color: "#dddddd" }}
         onPress={() => {
-          console.log("Pressed! ID:", id); // ✅ Debugging log
           dispatch(incrementPlayerScore(id));
         }}
       >
@@ -35,6 +35,9 @@ const styles = StyleSheet.create({
     width: "65%",
   },
   playerIcon: { flex: 1, resizeMode: "contain", width: "100%" },
+  pressable: {
+    flex: 1,
+  },
 });
 
 export default PlayerTile;

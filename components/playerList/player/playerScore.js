@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import { THEME } from "../../../constants";
 
-const PlayerScore = ({ color, score }) => {
+const PlayerScore = ({ color, score, playerCount }) => {
+  const dynamicFlex = playerCount > 3 ? 2 : 1;
+
   return (
-    <View style={[styles.scoreContainer, { borderColor: color }]}>
+    <View
+      style={[styles.scoreContainer, { borderColor: color, flex: dynamicFlex }]}
+    >
       <Text style={[styles.scoreInput, { color: color }]} editable={false}>
         {score}
       </Text>
@@ -13,18 +17,17 @@ const PlayerScore = ({ color, score }) => {
 
 const styles = StyleSheet.create({
   scoreContainer: {
-    flex: 1,
     height: "100%",
     justifyContent: "center",
     backgroundColor: THEME.background,
     padding: 1,
     borderRadius: 3,
-    width: "32.5%",
+    width: "40%",
     borderWidth: 1,
     textAlign: "center",
   },
   scoreInput: {
-    fontSize: 20, // TODO: need to be responsive
+    fontSize: 30, // TODO: need to be responsive
     textAlign: "center",
     fontFamily: "DigitalClock",
     letterSpacing: 4,

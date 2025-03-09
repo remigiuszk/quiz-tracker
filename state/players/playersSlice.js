@@ -39,15 +39,11 @@ const playersSlice = createSlice({
     },
     incrementPlayerScore: (state, action) => {
       console.log(action);
-      state.playerList = state.playerList.map((player, i) => {
+      state.playerList = state.playerList.map((player) =>
         player.id === action.payload
           ? { ...player, score: player.score + 1 }
-          : player;
-      });
-      const targetPlayer = state.playerList.filter(
-        (player) => player.id == action.payload
+          : player
       );
-      console.log(targetPlayer.score);
     },
   },
 });
