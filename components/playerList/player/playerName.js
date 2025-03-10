@@ -11,7 +11,7 @@ const PlayerName = ({ name }) => {
 
 const styles = StyleSheet.create({
   textContainer: {
-    flex:1,
+    flex: 10,
     width: "100%",
   },
   playerText: {

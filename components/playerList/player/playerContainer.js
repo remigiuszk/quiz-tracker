@@ -4,6 +4,7 @@ import { THEME, STYLES } from "../../../constants";
 import PlayerName from "./playerName";
 import PlayerTile from "./playerTile";
 import PlayerScore from "./playerScore";
+import PlayerContextMenu from "./playerContextMenu";
 
 const PlayerContainer = ({ player, playerCount }) => {
   const [containerDimensions, setContainerDimensions] = useState({
@@ -39,7 +40,11 @@ const PlayerContainer = ({ player, playerCount }) => {
         STYLES.shadow,
       ]}
     >
-      <PlayerName name={player.name} />
+      <View style={styles.nameContainer}>
+        <View style={{ flex: 1 }} />
+        <PlayerName name={player.name} style={{ flex: 1 }} />
+        <PlayerContextMenu style={{ flex: 1 }} />
+      </View>
       <PlayerTile color={player.color} id={player.id} />
       <PlayerScore
         color={player.color}
@@ -59,6 +64,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     gap: 10,
     padding: 16,
+  },
+  nameContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
   },
 });
 
