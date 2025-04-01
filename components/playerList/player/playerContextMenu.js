@@ -1,4 +1,5 @@
 import { Image, Pressable, StyleSheet, View } from "react-native";
+import { THEME } from "../../../constants";
 
 const PlayerContextMenu = () => {
   return (
@@ -12,7 +13,7 @@ const PlayerContextMenu = () => {
       >
         <Image
           style={[styles.editIcon]}
-          source={require("../../../assets/img/icons/ellipsis-v-icon.png")}
+          source={require("../../../assets/img/icons/setting-icon.png")}
         ></Image>
       </Pressable>
     </View>
@@ -20,7 +21,11 @@ const PlayerContextMenu = () => {
 };
 
 const styles = StyleSheet.create({
-  buttonContainer: { flex: 1, height: "100%" },
+  buttonContainer: {
+    flex: 1,
+    height: "100%",
+    padding:1
+  },
   editIcon: { flex: 1, resizeMode: "contain", width: "100%", height: "100%" },
   pressable: {
     flex: 1,

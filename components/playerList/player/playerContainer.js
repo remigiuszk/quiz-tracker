@@ -42,8 +42,8 @@ const PlayerContainer = ({ player, playerCount }) => {
     >
       <View style={styles.nameContainer}>
         <View style={{ flex: 1 }} />
-        <PlayerName name={player.name} style={{ flex: 1 }} />
-        <PlayerContextMenu style={{ flex: 1 }} />
+        <PlayerName name={player.name} />
+        <PlayerContextMenu />
       </View>
       <PlayerTile color={player.color} id={player.id} />
       <PlayerScore
@@ -63,13 +63,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     gap: 10,
-    padding: 16,
+    padding: 8,
   },
   nameContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
+    flex: 1,
   },
 });
 
