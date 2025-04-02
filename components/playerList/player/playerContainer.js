@@ -52,7 +52,7 @@ const PlayerContainer = ({ player, playerCount }) => {
         playerCount={playerCount}
       />
     </View>
-  );
+  );``
 };
 
 const styles = StyleSheet.create({
