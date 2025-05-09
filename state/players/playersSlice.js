@@ -17,6 +17,8 @@ const initialState = {
       score: 0,
     },
   ],
+  managedPlayer: null,
+  showManageMenu: false,
 };
 
 const playersSlice = createSlice({
@@ -38,17 +40,37 @@ const playersSlice = createSlice({
       state.playerList = [...initialState.playerList];
     },
     incrementPlayerScore: (state, action) => {
-      console.log(action);
       state.playerList = state.playerList.map((player) =>
         player.id === action.payload
           ? { ...player, score: player.score + 1 }
           : player
       );
     },
+    decrementPlayerScore: (state, action) => {
+      state.playerList = state.playerList.map((player) =>
+        player.id === action.payload
+          ? { ...player, score: player.score - 1 }
+          : player
+      );
+    },
+    managePlayer: (state, action) => {
+      state.managedPlayer = state.playerList.find(
+        (player) => player.id === action.payload
+      );
+      state.showManageMenu = true;
+    },
+    closeManagePlayerModal: (state) => {
+      state.showManageMenu = false;
+    },
   },
 });
 
-export const { addNewPlayer, resetPlayers, incrementPlayerScore } =
-  playersSlice.actions;
+export const {
+  addNewPlayer,
+  resetPlayers,
+  incrementPlayerScore,
+  managePlayer,
+  closeManagePlayerModal,
+} = playersSlice.actions;
 
 export default playersSlice.reducer;

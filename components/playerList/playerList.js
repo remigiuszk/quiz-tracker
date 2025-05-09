@@ -4,7 +4,7 @@ import { THEME } from "../../constants";
 import { useSelector } from "react-redux";
 
 const PlayerList = () => {
-  const players = useSelector((state) => state.players.playerList);
+  const players = useSelector((state) => state.players.managedPlayer);
 
   if (!players || !Array.isArray(players) || players.length === 0) {
     return null;

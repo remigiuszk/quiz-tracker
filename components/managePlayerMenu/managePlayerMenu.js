@@ -1,10 +1,18 @@
-import { Modal, StyleSheet, View } from "react-native";
+import { Modal, Pressable, StyleSheet, View } from "react-native";
+import { useSelector } from "react-redux";
 
-const ManagePlayerMenu = ({ player }) => {
+const ManagePlayerMenu = ({ player, showModal }) => {
+  const managedPlayer = useSelector((state) => state.managedPlayer);
+  const showModal = useSelector((state) => state.showManageMenu);
+
   return (
-    <Modal>
+    <Modal visible={showModal} animationType="slide">
       <View style={styles.container}>
-        <View>[-] Subtract Point</View>
+        <View>
+          <Pressable>
+            <Text>[-] Subtract Point</Text>
+          </Pressable>
+        </View>
         <View>[x] Delete Player</View>
         <View>[/] Change Name</View>
       </View>
@@ -26,3 +34,5 @@ const styles = StyleSheet.create({
     gap: 12,
   },
 });
+
+export default ManagePlayerMenu;

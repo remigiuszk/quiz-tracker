@@ -9,6 +9,15 @@ const MenuOption = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    width: "100%",
+    flexDirection: "column",
+    alignContent: "center",
+    justifyContent: "flex-start",
+    gap: 3,
+    padding: 8,
+  },
   text: {},
 });
+
+export default MenuOption;
