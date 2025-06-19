@@ -43,7 +43,7 @@ const PlayerContainer = ({ player, playerCount }) => {
       <View style={styles.nameContainer}>
         <View style={{ flex: 1 }} />
         <PlayerName name={player.name} />
-        <PlayerContextMenu />
+        <PlayerContextMenu color={player.color} />
       </View>
       <PlayerTile color={player.color} id={player.id} />
       <PlayerScore

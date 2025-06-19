@@ -1,9 +1,12 @@
 import { Image, Pressable, StyleSheet, View } from "react-native";
 import { THEME } from "../../../constants";
+import { useDispatch } from "react-redux";
 
-const PlayerContextMenu = () => {
+const PlayerContextMenu = ({ color }) => {
+  const dispatch = useDispatch();
+
   return (
-    <View style={styles.buttonContainer}>
+    <View style={[styles.buttonContainer, { backgroundColor: color }]}>
       <Pressable
         style={styles.pressable}
         android_ripple={{ color: "#dddddd" }}
@@ -24,7 +27,9 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     height: "100%",
-    padding:1
+    padding: 1,
+    padding: 2,
+    borderRadius: 6,
   },
   editIcon: { flex: 1, resizeMode: "contain", width: "100%", height: "100%" },
   pressable: {
