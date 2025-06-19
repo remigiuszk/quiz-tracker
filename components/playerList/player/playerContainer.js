@@ -43,7 +43,7 @@ const PlayerContainer = ({ player, playerCount }) => {
       <View style={styles.nameContainer}>
         <View style={{ flex: 1 }} />
         <PlayerName name={player.name} />
-        <PlayerContextMenu color={player.color} />
+        <PlayerContextMenu id={player.id} color={player.color} />
       </View>
       <PlayerTile color={player.color} id={player.id} />
       <PlayerScore
@@ -52,7 +52,8 @@ const PlayerContainer = ({ player, playerCount }) => {
         playerCount={playerCount}
       />
     </View>
-  );``
+  );
+  ``;
 };
 
 const styles = StyleSheet.create({

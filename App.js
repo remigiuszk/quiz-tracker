@@ -18,9 +18,9 @@ export default function App() {
   return (
     <Provider store={store}>
       <SafeAreaView style={[styles.appContainer, STYLES.shadow]}>
-        <ManagePlayerMenu />
         <OptionsBar />
         <PlayerList />
+        <ManagePlayerMenu/>
       </SafeAreaView>
     </Provider>
   );

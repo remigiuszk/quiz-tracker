@@ -1,9 +1,12 @@
-import { Modal, Pressable, StyleSheet, View } from "react-native";
-import { useSelector } from "react-redux";
+import { Button, Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { THEME } from "../../constants";
+import { managePlayerMenuOff } from "../../state/players/playersSlice";
 
-const ManagePlayerMenu = ({ player, showModal }) => {
-  const managedPlayer = useSelector((state) => state.managedPlayer);
-  const showModal = useSelector((state) => state.showManageMenu);
+const ManagePlayerMenu = () => {
+  const dispatch = useDispatch();
+  const managedPlayer = useSelector((state) => state.players.manageModalPlayer);
+  const showModal = useSelector((state) => state.players.managePlayerModalOn);
 
   return (
     <Modal visible={showModal} animationType="slide">
@@ -13,8 +16,16 @@ const ManagePlayerMenu = ({ player, showModal }) => {
             <Text>[-] Subtract Point</Text>
           </Pressable>
         </View>
-        <View>[x] Delete Player</View>
-        <View>[/] Change Name</View>
+        <View>
+          <Text>[x] Delete Player</Text>
+        </View>
+        <View>
+          <Text>[/] Change Name</Text>
+        </View>
+        <Button
+          title="close"
+          onPress={() => dispatch(managePlayerMenuOff())}
+        ></Button>
       </View>
     </Modal>
   );
@@ -22,14 +33,9 @@ const ManagePlayerMenu = ({ player, showModal }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
-    flex: 10,
-    backgroundColor: THEME.background,
     padding: 6,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    flexWrap: "wrap",
+    flexDirection: "column",
+    justifyContent: "center",
     alignContent: "center",
     gap: 12,
   },

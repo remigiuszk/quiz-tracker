@@ -1,8 +1,8 @@
 import { Image, Pressable, StyleSheet, View } from "react-native";
-import { THEME } from "../../../constants";
 import { useDispatch } from "react-redux";
+import { managePlayerMenuOn } from "../../../state/players/playersSlice";
 
-const PlayerContextMenu = ({ color }) => {
+const PlayerContextMenu = ({ id, color }) => {
   const dispatch = useDispatch();
 
   return (
@@ -11,7 +11,8 @@ const PlayerContextMenu = ({ color }) => {
         style={styles.pressable}
         android_ripple={{ color: "#dddddd" }}
         onPress={() => {
-          dispatch(incrementPlayerScore(id));
+          console.log("action dispatched" + id);
+          dispatch(managePlayerMenuOn(id));
         }}
       >
         <Image
