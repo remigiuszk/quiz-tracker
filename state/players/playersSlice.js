@@ -47,9 +47,16 @@ const playersSlice = createSlice({
           : player
       );
     },
+    decrementPlayerScore: (state) => {
+      state.playerList = state.playerList.map((player) =>
+        player.id === state.manageModalPlayer.id
+          ? { ...player, score: player.score - 1 }
+          : player
+      );
+    },
     managePlayerMenuOn: (state, action) => {
       console.log(state, action);
-      state.manageModalPlayer = state.playerList.filter(
+      state.manageModalPlayer = state.playerList.find(
         (player) => player.id === action.payload
       );
       state.managePlayerModalOn = true;
@@ -59,8 +66,15 @@ const playersSlice = createSlice({
       return {
         ...state,
         managePlayerModalOn: false,
-        manageModalPlayer: null
+        manageModalPlayer: null,
       };
+    },
+    changePlayerName: (state, action) => {
+      state.playerList = state.playerList.map((player) =>
+        player.id === state.manageModalPlayer.id
+          ? { ...player, name: action.payload }
+          : player
+      );
     },
   },
 });
@@ -69,8 +83,10 @@ export const {
   addNewPlayer,
   resetPlayers,
   incrementPlayerScore,
+  decrementPlayerScore,
   managePlayerMenuOff,
   managePlayerMenuOn,
+  changePlayerName,
 } = playersSlice.actions;
 
 export default playersSlice.reducer;

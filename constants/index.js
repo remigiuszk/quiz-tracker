@@ -14,6 +14,7 @@ export const THEME = {
   foreground: "#292929",
   foregroundLight: "#403f4c",
   foregroundBlack: "#121420",
+  foregroundLighter: "#d1e3ff",
   text: "#d6d5e3",
 };
 

@@ -20,7 +20,8 @@ export default function App() {
       <SafeAreaView style={[styles.appContainer, STYLES.shadow]}>
         <OptionsBar />
         <PlayerList />
-        <ManagePlayerMenu/>
+
+        <ManagePlayerMenu />
       </SafeAreaView>
     </Provider>
   );

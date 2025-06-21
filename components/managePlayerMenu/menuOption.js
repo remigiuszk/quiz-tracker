@@ -1,9 +1,19 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useDispatch } from "react-redux";
+import { decrementPlayerScore } from "../../state/players/playersSlice";
 
-const MenuOption = () => {
+const MenuOption = ({ action, text, icon }) => {
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}></Text>
+      <Pressable
+        onPress={() => {
+          dispatch(action);
+        }}
+      >
+        <Text style={styles.text}>{text}</Text>
+      </Pressable>
     </View>
   );
 };
@@ -11,7 +21,7 @@ const MenuOption = () => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    flexDirection: "column",
+    flexDirection: "row",
     alignContent: "center",
     justifyContent: "flex-start",
     gap: 3,
