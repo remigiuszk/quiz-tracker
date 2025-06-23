@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
     height: "100%",
     direction: "vertical",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: THEME.foreground,
+    backgroundColor: THEME.background2,
   },
 });

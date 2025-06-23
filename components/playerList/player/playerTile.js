@@ -19,7 +19,7 @@ const PlayerTile = ({ color, id }) => {
       >
         <Image
           style={[styles.playerIcon]}
-          source={require("../../../assets/img/person.png")}
+          source={require("../../../assets/img/icons/person.png")}
         ></Image>
       </Pressable>
     </View>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 12,
     overflow: "hidden",
-    flex: 3,
+    flex: 2.5,
     width: "65%",
   },
   playerIcon: { flex: 1, resizeMode: "contain", width: "100%" },

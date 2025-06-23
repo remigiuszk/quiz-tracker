@@ -10,21 +10,22 @@ const PlayerContainer = ({ player, playerCount }) => {
   const [containerDimensions, setContainerDimensions] = useState({
     width: "40%",
     height: "85%",
+    fontSize: 24,
   });
 
   useEffect(() => {
     switch (playerCount) {
       case 1:
-        setContainerDimensions({ width: "40%", height: "85%" });
+        setContainerDimensions({ width: "40%", height: "85%", fontSize: 24 });
         break;
       case 2:
-        setContainerDimensions({ width: "40%", height: "85%" });
+        setContainerDimensions({ width: "40%", height: "85%", fontSize: 24 });
         break;
       case 3:
-        setContainerDimensions({ width: "30%", height: "85%" });
+        setContainerDimensions({ width: "30%", height: "85%", fontSize: 18 });
         break;
       default:
-        setContainerDimensions({ width: "25%", height: "45%" });
+        setContainerDimensions({ width: "25%", height: "45%", fontSize: 16 });
         break;
     }
   }, [playerCount]);
@@ -42,7 +43,10 @@ const PlayerContainer = ({ player, playerCount }) => {
     >
       <View style={styles.nameContainer}>
         <View style={{ flex: 1 }} />
-        <PlayerName name={player.name} />
+        <PlayerName
+          name={player.name}
+          fontSize={containerDimensions.fontSize}
+        />
         <PlayerContextMenu id={player.id} color={player.color} />
       </View>
       <PlayerTile color={player.color} id={player.id} />
@@ -59,12 +63,12 @@ const PlayerContainer = ({ player, playerCount }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
-    backgroundColor: THEME.foreground,
-    borderRadius: 5,
+    backgroundColor: THEME.background3,
+    borderRadius: 20,
     alignItems: "center",
     justifyContent: "space-around",
     gap: 10,
-    padding: 8,
+    padding: 15,
   },
   nameContainer: {
     flexDirection: "row",
@@ -72,6 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: "100%",
     flex: 1,
+    gap: 10,
   },
 });
 

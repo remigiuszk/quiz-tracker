@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import tinycolor from "tinycolor2";
 
 export const PLAYER_COLORS = [
   { name: "Red", colorCode: "#ff595e" },
@@ -9,12 +10,15 @@ export const PLAYER_COLORS = [
   { name: "Pink", colorCode: "#f15bb5" },
 ];
 
+const blendWithWhite = (opacityPercentage) =>
+  tinycolor.mix("#ffffff", "#121212", 100 - opacityPercentage).toHexString();
+
 export const THEME = {
-  background: "#1f1f1f",
-  foreground: "#292929",
-  foregroundLight: "#403f4c",
-  foregroundBlack: "#121420",
-  foregroundLighter: "#d1e3ff",
+  backgroundBase: "#1f2021",
+  background1: blendWithWhite(5),
+  background2: blendWithWhite(7),
+  background3: blendWithWhite(9),
+  background4: blendWithWhite(11),
   text: "#d6d5e3",
 };
 
@@ -23,10 +27,20 @@ export const STYLES = StyleSheet.create({
     shadowColor: "#000000",
     shadowOffset: {
       width: 0,
-      height: 4,
+      height: 6,
     },
-    shadowOpacity: 0.19,
+    shadowOpacity: 0.2,
     shadowRadius: 5.62,
+    elevation: 8,
+  },
+  shadowBottom: {
+    shadowColor: "#000000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
     elevation: 6,
   },
 });
