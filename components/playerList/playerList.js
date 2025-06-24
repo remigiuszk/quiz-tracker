@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     flex: 10,
-    backgroundColor: THEME.background,
+    backgroundColor: THEME.background1,
     padding: 6,
     flexDirection: "row",
     justifyContent: "space-around",

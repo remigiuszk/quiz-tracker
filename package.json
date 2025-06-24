@@ -21,7 +21,8 @@
     "react-native-immersive-mode": "^2.0.2",
     "react-native-navigation-bar-color": "^2.0.2",
     "react-native-uuid": "^2.0.3",
-    "react-redux": "^9.2.0"
+    "react-redux": "^9.2.0",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

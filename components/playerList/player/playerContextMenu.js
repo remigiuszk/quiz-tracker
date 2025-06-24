@@ -27,10 +27,7 @@ const PlayerContextMenu = ({ id, color }) => {
 const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
-    height: "100%",
-    padding: 1,
-    padding: 2,
-    borderRadius: 6,
+    borderRadius: 100,
   },
   editIcon: { flex: 1, resizeMode: "contain", width: "100%", height: "100%" },
   pressable: {

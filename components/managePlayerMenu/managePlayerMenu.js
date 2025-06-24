@@ -8,7 +8,7 @@ import NameChange from "./menuOptions/nameChange";
 import MenuOption from "./menuOption";
 import * as NavigationBar from "expo-navigation-bar";
 import { useEffect } from "react";
-import { THEME } from "../../constants";
+import { THEME, STYLES } from "../../constants";
 
 const ManagePlayerMenu = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const ManagePlayerMenu = () => {
       statusBarTranslucent={true}
     >
       <View style={styles.backdrop}>
-        <View style={styles.container}>
+        <View style={[styles.container, STYLES.shadow]}>
           <NameChange />
           <MenuOption
             action={decrementPlayerScore()}
@@ -45,11 +45,6 @@ const ManagePlayerMenu = () => {
 
 const styles = StyleSheet.create({
   backdrop: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
     backgroundColor: "rgba(0, 0, 0, 0)",
     justifyContent: "center",
     alignItems: "center",
@@ -62,10 +57,8 @@ const styles = StyleSheet.create({
     gap: 12,
     width: "60%",
     height: "80%",
-    backgroundColor: THEME.foregroundLight,
+    backgroundColor: THEME.background4,
     borderRadius: 10,
-    borderColor: THEME.background,
-    borderWidth: 5,
     padding:25
   },
 });

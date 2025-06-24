@@ -44,13 +44,13 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   input: {
-    color: THEME.background,
+    color: "white",
     borderColor: THEME.background,
     borderRadius: 5,
     borderWidth: 0.5,
-    backgroundColor: THEME.foregroundLighter,
-    width:"60%",
-    textAlign:"center"
+    backgroundColor: THEME.background2,
+    width: "60%",
+    textAlign: "center",
   },
 });
 

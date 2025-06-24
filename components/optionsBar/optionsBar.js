@@ -7,7 +7,7 @@ const OptionsBar = () => {
   const dispatch = useDispatch();
 
   return (
-    <View style={[styles.optionsBarContainer, STYLES.shadow]}>
+    <View style={[styles.optionsBarContainer, STYLES.shadowBottom]}>
       <Button
         width=""
         title="add"
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   optionsBarContainer: {
     width: "100%",
     flex: 1,
-    backgroundColor: THEME.foreground,
+    backgroundColor: THEME.background2,
     justifyContent: "flex-end",
     alignItems: "center",
     flexDirection: "row",
