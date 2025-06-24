@@ -1,6 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
-import { decrementPlayerScore } from "../../state/players/playersSlice";
 
 const MenuOption = ({ action, text, icon }) => {
   const dispatch = useDispatch();

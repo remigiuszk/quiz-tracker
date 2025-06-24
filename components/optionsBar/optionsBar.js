@@ -1,5 +1,5 @@
 import { Button, StyleSheet, View } from "react-native";
-import { PLAYER_COLORS, STYLES, THEME } from "../../constants";
+import { SHADOW_STYLES, THEME } from "../../constants";
 import { useDispatch } from "react-redux";
 import { addNewPlayer, resetPlayers } from "../../state/players/playersSlice";
 
@@ -7,7 +7,7 @@ const OptionsBar = () => {
   const dispatch = useDispatch();
 
   return (
-    <View style={[styles.optionsBarContainer, STYLES.shadowBottom]}>
+    <View style={[styles.optionsBarContainer, SHADOW_STYLES.shadowBottom]}>
       <Button
         width=""
         title="add"

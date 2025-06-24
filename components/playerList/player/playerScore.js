@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View } from "react-native";
-import { STYLES, THEME } from "../../../constants";
+import { SHADOW_STYLES, STYLES, THEME } from "../../../constants";
 
 const PlayerScore = ({ color, score, playerCount }) => {
   const dynamicFlex = playerCount > 3 ? 2 : 1;
 
   return (
     <View
-      style={[styles.scoreContainer, STYLES.shadow, { borderColor: color, flex: dynamicFlex }]}
+      style={[
+        styles.scoreContainer,
+        SHADOW_STYLES.default,
+        { borderColor: color, flex: dynamicFlex },
+      ]}
     >
       <Text style={[styles.scoreInput, { color: color }]} editable={false}>
         {score}
@@ -27,12 +31,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   scoreInput: {
-    fontSize: 30, // TODO: need to be responsive
+    fontSize: 30,
     textAlign: "center",
     fontFamily: "DigitalClock",
     letterSpacing: 4,
     width: "100%",
-    backgroundColor: THEME.background2
+    backgroundColor: THEME.background2,
   },
 });
 
