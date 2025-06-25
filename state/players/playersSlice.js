@@ -19,6 +19,16 @@ const initialState = {
   ],
   manageModalPlayer: null,
   managePlayerModalOn: false,
+  availableColors: PLAYER_COLORS.filter(
+    (color) => color.name !== "Red" || color.name !== "Yellow"
+  ),
+};
+
+const refreshColors = (currentState) => {
+  const usedColors = currentState.playerList.map((player) => player.color);
+  currentState.availableColors = PLAYER_COLORS.filter(
+    (color) => !usedColors.includes(color.colorCode)
+  );
 };
 
 const playersSlice = createSlice({
@@ -26,21 +36,28 @@ const playersSlice = createSlice({
   initialState,
   reducers: {
     addNewPlayer: (state) => {
-      state.playerList = [
-        ...state.playerList,
-        {
-          name: "Player" + (state.playerList.length + 1),
-          color: PLAYER_COLORS[state.playerList.length + 1].colorCode,
-          id: uuid.v4(),
-          score: 0,
-        },
-      ];
+      if (state.playerList.length < 6) {
+        state.playerList = [
+          ...state.playerList,
+          {
+            name: "Player " + (state.playerList.length + 1),
+            color:
+              state.availableColors[
+                Math.floor(Math.random() * state.availableColors.length)
+              ].colorCode,
+            id: uuid.v4(),
+            score: 0,
+          },
+        ];
+        refreshColors(state);
+      }
     },
     resetPlayers: (state) => {
-      state.playerList = [...initialState.playerList];
+      state.playerList = state.playerList.map((player) => {
+        return { ...player, score: 0 };
+      });
     },
     incrementPlayerScore: (state, action) => {
-      console.log(action);
       state.playerList = state.playerList.map((player) =>
         player.id === action.payload
           ? { ...player, score: player.score + 1 }
@@ -76,6 +93,14 @@ const playersSlice = createSlice({
           : player
       );
     },
+    deletePlayer: (state, action) => {
+      state.playerList = state.playerList.filter(
+        (player) => player.id !== action.payload
+      );
+      state.manageModalPlayer = null;
+      state.managePlayerModalOn = false;
+      refreshColors(state);
+    },
   },
 });
 
@@ -87,6 +112,7 @@ export const {
   managePlayerMenuOff,
   managePlayerMenuOn,
   changePlayerName,
+  deletePlayer,
 } = playersSlice.actions;
 
 export default playersSlice.reducer;

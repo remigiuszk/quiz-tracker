@@ -8,7 +8,11 @@ const PlayerTile = ({ color, id }) => {
 
   return (
     <View
-      style={[styles.playerTile, { backgroundColor: color }, SHADOW_STYLES.default]}
+      style={[
+        styles.playerTile,
+        { backgroundColor: color },
+        SHADOW_STYLES.default,
+      ]}
     >
       <Pressable
         style={styles.pressable}

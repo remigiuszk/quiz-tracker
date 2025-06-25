@@ -6,6 +6,7 @@ import PlayerList from "./components/playerList/playerList";
 import { Provider } from "react-redux";
 import { store } from "./state/store";
 import ManagePlayerMenu from "./components/managePlayerMenu/managePlayerMenu";
+import NameChange from "./components/managePlayerMenu/menuOptions/nameChange";
 
 export default function App() {
   const { fontLoaded } = useInitializeApp();
@@ -19,7 +20,6 @@ export default function App() {
       <SafeAreaView style={[styles.appContainer, SHADOW_STYLES.default]}>
         <OptionsBar />
         <PlayerList />
-
         <ManagePlayerMenu />
       </SafeAreaView>
     </Provider>

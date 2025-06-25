@@ -2,7 +2,9 @@ import { Button, Modal, StyleSheet, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
   decrementPlayerScore,
+  deletePlayer,
   managePlayerMenuOff,
+  resetPlayers,
 } from "../../state/players/playersSlice";
 import NameChange from "./menuOptions/nameChange";
 import * as NavigationBar from "expo-navigation-bar";
@@ -11,9 +13,8 @@ import { THEME, SHADOW_STYLES } from "../../constants";
 import DefaultButton from "../shared/buttons/defaultButton";
 
 const ManagePlayerMenu = () => {
-  console.log("RENDER ManagePlayerMenu");
-  const dispatch = useDispatch();
   const showModal = useSelector((state) => state.players.managePlayerModalOn);
+  const managedPlayer = useSelector((state) => state.players.manageModalPlayer);
 
   useEffect(() => {
     console.log(showModal);
@@ -30,17 +31,17 @@ const ManagePlayerMenu = () => {
         <View style={[styles.container, SHADOW_STYLES.default]}>
           <NameChange />
           <DefaultButton
-            action={decrementPlayerScore}
+            action={decrementPlayerScore()}
             text="Decrement Player Score"
             width="90%"
           ></DefaultButton>
           <DefaultButton
-            action={decrementPlayerScore}
+            action={deletePlayer(managedPlayer?.id)}
             text="Delete player"
             width="90%"
           ></DefaultButton>
           <DefaultButton
-            action={managePlayerMenuOff}
+            action={managePlayerMenuOff()}
             text="Close"
             width="90%"
             secondaryColor={true}

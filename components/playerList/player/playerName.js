@@ -4,7 +4,7 @@ import { SHADOW_STYLES, TEXT_STYLES } from "../../../constants";
 const PlayerName = ({ name, fontSize }) => {
   return (
     <View style={[styles.textContainer, SHADOW_STYLES.default]}>
-      <Text style={[{ fontSize: fontSize }, TEXT_STYLES.lightTextLarge]}>
+      <Text style={[TEXT_STYLES.lightTextLarge, { fontSize: fontSize }]}>
         {name}
       </Text>
     </View>

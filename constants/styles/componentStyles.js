@@ -6,11 +6,12 @@ import { THEME } from "../theme/theme";
 export const COMPONENT_STYLES = StyleSheet.create({
   defaultInput: {
     ...SHADOW_STYLES,
-    ...TEXT_STYLES.lightTextSmall,
     borderColor: THEME.background7,
     borderRadius: 5,
     borderWidth: 2,
     backgroundColor: THEME.background5,
+    color: THEME.textLight,
+    fontSize: 18,
   },
   defaultButton: {
     ...SHADOW_STYLES,
