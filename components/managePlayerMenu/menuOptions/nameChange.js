@@ -5,19 +5,17 @@ import { useEffect, useState } from "react";
 import { COMPONENT_STYLES, SHADOW_STYLES } from "../../../constants";
 
 const NameChange = () => {
+  console.log("RENDER NameChange");
   const dispatch = useDispatch();
-  const managedPlayer = useSelector((state) => state.players.manageModalPlayer);
-  const [enteredName, setEnteredName] = useState("");
+  //const managedPlayer = useSelector((state) => state.players.manageModalPlayer);
+  const [enteredName, onChangeText] = useState("");
 
-  useEffect(() => {
-    if (managedPlayer?.name) {
-      setEnteredName(managedPlayer.name);
-    }
-  }, [managedPlayer]);
-
-  const inputHandler = (enteredText) => {
-    setEnteredName(enteredText);
-  };
+  // useEffect(() => {
+  //   if (managedPlayer?.name && managedPlayer.name !== enteredName) {
+  //     setEnteredName(managedPlayer.name);
+  //     console.log("managed player" + managedPlayer.name);
+  //   }
+  // }, [managedPlayer]);
 
   return (
     <View style={styles.container}>
@@ -27,7 +25,7 @@ const NameChange = () => {
           styles.input,
           SHADOW_STYLES.default,
         ]}
-        onChangeText={inputHandler}
+        onChangeText={onChangeText}
         value={enteredName}
         placeholder="Enter new name"
       ></TextInput>
