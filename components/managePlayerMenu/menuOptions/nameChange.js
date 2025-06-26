@@ -2,7 +2,7 @@ import { Button, StyleSheet, TextInput, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { changePlayerName } from "../../../state/players/playersSlice";
 import { useEffect, useState } from "react";
-import { STYLES, THEME } from "../../../constants";
+import { COMPONENT_STYLES, SHADOW_STYLES } from "../../../constants";
 
 const NameChange = () => {
   const dispatch = useDispatch();
@@ -13,24 +13,25 @@ const NameChange = () => {
     if (managedPlayer?.name) {
       setEnteredName(managedPlayer.name);
     }
-  }, [managedPlayer]);
+  }, []);
 
   const inputHandler = (enteredText) => {
+    dispatch(changePlayerName(enteredText));
     setEnteredName(enteredText);
   };
 
   return (
     <View style={styles.container}>
       <TextInput
-        style={[styles.input, STYLES.shadow]}
+        style={[
+          COMPONENT_STYLES.defaultInput,
+          styles.input,
+          SHADOW_STYLES.default,
+        ]}
         onChangeText={inputHandler}
         value={enteredName}
         placeholder="Enter new name"
       ></TextInput>
-      <Button
-        title="Apply"
-        onPress={() => dispatch(changePlayerName(enteredName))}
-      ></Button>
     </View>
   );
 };
@@ -44,11 +45,6 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   input: {
-    color: "white",
-    borderColor: THEME.background,
-    borderRadius: 5,
-    borderWidth: 0.5,
-    backgroundColor: THEME.background2,
     width: "60%",
     textAlign: "center",
   },

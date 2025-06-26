@@ -1,5 +1,5 @@
 import { StyleSheet, View, Image, Pressable } from "react-native";
-import { STYLES } from "../../../constants";
+import { SHADOW_STYLES } from "../../../constants";
 import { useDispatch } from "react-redux";
 import { incrementPlayerScore } from "../../../state/players/playersSlice";
 
@@ -8,7 +8,11 @@ const PlayerTile = ({ color, id }) => {
 
   return (
     <View
-      style={[styles.playerTile, { backgroundColor: color }, STYLES.shadow]}
+      style={[
+        styles.playerTile,
+        { backgroundColor: color },
+        SHADOW_STYLES.default,
+      ]}
     >
       <Pressable
         style={styles.pressable}

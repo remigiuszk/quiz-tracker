@@ -1,13 +1,27 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import PlayerContainer from "./player/playerContainer";
-import { THEME } from "../../constants";
+import { TEXT_STYLES, THEME } from "../../constants";
 import { useSelector } from "react-redux";
+import DefaultButton from "../shared/buttons/defaultButton";
+import { addNewPlayer } from "../../state/players/playersSlice";
 
 const PlayerList = () => {
   const players = useSelector((state) => state.players.playerList);
 
   if (!players || !Array.isArray(players) || players.length === 0) {
-    return null;
+    return (
+      <View style={styles.playersContainer}>
+        <Text style={TEXT_STYLES.lightTextLarge}>
+          no players added, add a player to get started
+        </Text>
+        <DefaultButton
+          text="Add new player"
+          action={addNewPlayer()}
+          width="50%"
+          height="15%"
+        ></DefaultButton>
+      </View>
+    );
   }
 
   return (

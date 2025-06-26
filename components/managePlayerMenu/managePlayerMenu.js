@@ -1,23 +1,24 @@
-import { Button, Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import { Button, Modal, StyleSheet, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
   decrementPlayerScore,
+  deletePlayer,
   managePlayerMenuOff,
+  resetPlayers,
 } from "../../state/players/playersSlice";
 import NameChange from "./menuOptions/nameChange";
-import MenuOption from "./menuOption";
 import * as NavigationBar from "expo-navigation-bar";
 import { useEffect } from "react";
-import { THEME, STYLES } from "../../constants";
+import { THEME, SHADOW_STYLES } from "../../constants";
+import DefaultButton from "../shared/buttons/defaultButton";
 
 const ManagePlayerMenu = () => {
-  const dispatch = useDispatch();
-  const managedPlayer = useSelector((state) => state.players.manageModalPlayer);
   const showModal = useSelector((state) => state.players.managePlayerModalOn);
+  const managedPlayer = useSelector((state) => state.players.manageModalPlayer);
 
   useEffect(() => {
-    NavigationBar.setBackgroundColorAsync("black");
-  }, []);
+    console.log(showModal);
+  }, [showModal]);
 
   return (
     <Modal
@@ -27,16 +28,24 @@ const ManagePlayerMenu = () => {
       statusBarTranslucent={true}
     >
       <View style={styles.backdrop}>
-        <View style={[styles.container, STYLES.shadow]}>
+        <View style={[styles.container, SHADOW_STYLES.default]}>
           <NameChange />
-          <MenuOption
+          <DefaultButton
             action={decrementPlayerScore()}
             text="Decrement Player Score"
-          ></MenuOption>
-          <Button
-            title="close"
-            onPress={() => dispatch(managePlayerMenuOff())}
-          ></Button>
+            width="90%"
+          ></DefaultButton>
+          <DefaultButton
+            action={deletePlayer(managedPlayer?.id)}
+            text="Delete player"
+            width="90%"
+          ></DefaultButton>
+          <DefaultButton
+            action={managePlayerMenuOff()}
+            text="Close"
+            width="90%"
+            secondaryColor={true}
+          ></DefaultButton>
         </View>
       </View>
     </Modal>
@@ -53,13 +62,13 @@ const styles = StyleSheet.create({
     padding: 6,
     flexDirection: "column",
     justifyContent: "center",
-    alignContent: "center",
+    alignItems: "center",
     gap: 12,
     width: "60%",
     height: "80%",
     backgroundColor: THEME.background4,
     borderRadius: 10,
-    padding:25
+    padding: 25,
   },
 });
 

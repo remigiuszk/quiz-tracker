@@ -6,7 +6,7 @@ const PlayerContextMenu = ({ id, color }) => {
   const dispatch = useDispatch();
 
   return (
-    <View style={[styles.buttonContainer, { backgroundColor: color }]}>
+    <View style={[styles.buttonContainer]}>
       <Pressable
         style={styles.pressable}
         android_ripple={{ color: "#dddddd" }}
