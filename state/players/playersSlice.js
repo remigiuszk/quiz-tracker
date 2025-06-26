@@ -20,7 +20,7 @@ const initialState = {
   manageModalPlayer: null,
   managePlayerModalOn: false,
   availableColors: PLAYER_COLORS.filter(
-    (color) => color.name !== "Red" || color.name !== "Yellow"
+    (color) => color.name !== "Red" && color.name !== "Yellow"
   ),
 };
 
@@ -36,7 +36,8 @@ const playersSlice = createSlice({
   initialState,
   reducers: {
     addNewPlayer: (state) => {
-      if (state.playerList.length < 6) {
+      console.log(state.availableColors);
+      if (state.playerList.length < 10) {
         state.playerList = [
           ...state.playerList,
           {

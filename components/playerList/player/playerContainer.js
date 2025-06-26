@@ -24,8 +24,20 @@ const PlayerContainer = ({ player, playerCount }) => {
       case 3:
         setContainerDimensions({ width: "30%", height: "85%", fontSize: 18 });
         break;
+      case 7:
+        setContainerDimensions({ width: "20%", height: "45%", fontSize: 14 });
+        break;
+      case 8:
+        setContainerDimensions({ width: "20%", height: "45%", fontSize: 14 });
+        break;
+      case 9:
+        setContainerDimensions({ width: "18%", height: "45%", fontSize: 14 });
+        break;
+      case 10:
+        setContainerDimensions({ width: "18%", height: "45%", fontSize: 14 });
+        break;
       default:
-        setContainerDimensions({ width: "25%", height: "45%", fontSize: 16 });
+        setContainerDimensions({ width: "25%", height: "45%", fontSize: 14 });
         break;
     }
   }, [playerCount]);

@@ -9,20 +9,32 @@ const OptionsBar = () => {
 
   return (
     <View style={[styles.optionsBarContainer, SHADOW_STYLES.shadowBottom]}>
-      <IconButton iconName="newPlayer" action={addNewPlayer()} width="50" height="50"/>
-      <IconButton iconName="newGame" action={resetPlayers()} width="50" height="50"/>
+      <IconButton
+        iconName="newPlayer"
+        action={addNewPlayer()}
+        width="60"
+        height="60"
+      />
+      <IconButton
+        iconName="newGame"
+        action={resetPlayers()}
+        width="60"
+        height="60"
+      />
     </View>
   );
 };
 const styles = StyleSheet.create({
   optionsBarContainer: {
     width: "100%",
-    flex: 1,
+    flex: 1.5,
     backgroundColor: THEME.background2,
     justifyContent: "flex-end",
-    alignItems: "center",
+    alignItems: "flex-end",
     flexDirection: "row",
-    paddingRight:12,
+    paddingRight: 12,
+    gap:6,
+    paddingTop:30
   },
 });
 

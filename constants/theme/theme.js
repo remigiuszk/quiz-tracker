@@ -2,11 +2,15 @@ import tinycolor from "tinycolor2";
 
 export const PLAYER_COLORS = [
   { name: "Red", colorCode: "#ff595e" },
-  { name: "Yellow", colorCode: "#ffca3a" },
+  { name: "Yellow", colorCode: "#fcf068" },
   { name: "Green", colorCode: "#8ac926" },
   { name: "Blue", colorCode: "#1982c4" },
   { name: "Purple", colorCode: "#6a4c93" },
   { name: "Pink", colorCode: "#f15bb5" },
+  { name: "Teal", colorCode: "#40f7a8" },
+  { name: "White", colorCode: "#f2f7f5" },
+  { name: "Orange", colorCode: "#ffab19" },
+  { name: "Baby blue", colorCode: "#9decfa" },
 ];
 
 const blendWithWhite = (opacityPercentage) =>

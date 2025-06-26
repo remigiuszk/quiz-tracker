@@ -6,7 +6,7 @@ import PlayerList from "./components/playerList/playerList";
 import { Provider } from "react-redux";
 import { store } from "./state/store";
 import ManagePlayerMenu from "./components/managePlayerMenu/managePlayerMenu";
-import NameChange from "./components/managePlayerMenu/menuOptions/nameChange";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
   const { fontLoaded } = useInitializeApp();
@@ -17,6 +17,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
+      <StatusBar translucent={true} />
       <SafeAreaView style={[styles.appContainer, SHADOW_STYLES.default]}>
         <OptionsBar />
         <PlayerList />
