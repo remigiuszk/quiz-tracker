@@ -3,15 +3,16 @@ import { SHADOW_STYLES, THEME } from "../../constants";
 import { useDispatch } from "react-redux";
 import { addNewPlayer, resetPlayers } from "../../state/players/playersSlice";
 import IconButton from "../shared/buttons/iconButton";
+import { useLocalization } from "../../hooks/useLocalization";
 
 const OptionsBar = () => {
-  const dispatch = useDispatch();
+  const localization = useLocalization();
 
   return (
     <View style={[styles.optionsBarContainer, SHADOW_STYLES.shadowBottom]}>
       <IconButton
         iconName="newPlayer"
-        action={addNewPlayer()}
+        action={addNewPlayer(localization.PLAYER)}
         width="60"
         height="60"
       />

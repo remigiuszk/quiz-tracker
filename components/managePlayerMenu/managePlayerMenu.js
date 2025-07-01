@@ -11,10 +11,12 @@ import * as NavigationBar from "expo-navigation-bar";
 import { useEffect } from "react";
 import { THEME, SHADOW_STYLES } from "../../constants";
 import DefaultButton from "../shared/buttons/defaultButton";
+import { useLocalization } from "../../hooks/useLocalization";
 
 const ManagePlayerMenu = () => {
   const showModal = useSelector((state) => state.players.managePlayerModalOn);
   const managedPlayer = useSelector((state) => state.players.manageModalPlayer);
+  const localization = useLocalization();
 
   useEffect(() => {
     console.log(showModal);
@@ -32,17 +34,17 @@ const ManagePlayerMenu = () => {
           <NameChange />
           <DefaultButton
             action={decrementPlayerScore()}
-            text="Decrement Player Score"
+            text={localization.DECREMENT_SCORE}
             width="90%"
           ></DefaultButton>
           <DefaultButton
             action={deletePlayer(managedPlayer?.id)}
-            text="Delete player"
+            text={localization.DELETE_PLAYER}
             width="90%"
           ></DefaultButton>
           <DefaultButton
             action={managePlayerMenuOff()}
-            text="Close"
+            text={localization.CLOSE_WINDOW}
             width="90%"
             secondaryColor={true}
           ></DefaultButton>

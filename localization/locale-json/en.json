@@ -1,0 +1,7 @@
+{
+  "greeting": "Welcome to quiz tracker!",
+  "player": "Player ",
+  "decrementScore": "Decrement player score",
+  "deletePlayer": "Delete player",
+  "closeWindow": "Close window"
+}

@@ -1,12 +1,23 @@
 import { StyleSheet, Text, View } from "react-native";
 import PlayerContainer from "./player/playerContainer";
 import { TEXT_STYLES, THEME } from "../../constants";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DefaultButton from "../shared/buttons/defaultButton";
-import { addNewPlayer } from "../../state/players/playersSlice";
+import {
+  addNewPlayer,
+  createInitialPlayers,
+} from "../../state/players/playersSlice";
+import { useLocalization } from "../../hooks/useLocalization";
+import { useEffect } from "react";
 
 const PlayerList = () => {
   const players = useSelector((state) => state.players.playerList);
+  const localization = useLocalization();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(createInitialPlayers(localization.PLAYER));
+  }, []);
 
   if (!players || !Array.isArray(players) || players.length === 0) {
     return (

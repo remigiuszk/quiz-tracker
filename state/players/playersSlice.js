@@ -1,27 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PLAYER_COLORS } from "../../constants";
 import uuid from "react-native-uuid";
+import { useLocalization } from "../../hooks/useLocalization";
 
 const initialState = {
-  playerList: [
-    {
-      name: "Player 1",
-      color: PLAYER_COLORS[0].colorCode,
-      id: uuid.v4(),
-      score: 0,
-    },
-    {
-      name: "Player 2",
-      color: PLAYER_COLORS[1].colorCode,
-      id: uuid.v4(),
-      score: 0,
-    },
-  ],
+  playerList: [],
   manageModalPlayer: null,
   managePlayerModalOn: false,
-  availableColors: PLAYER_COLORS.filter(
-    (color) => color.name !== "Red" && color.name !== "Yellow"
-  ),
+  availableColors: PLAYER_COLORS,
 };
 
 const refreshColors = (currentState) => {
@@ -35,13 +21,31 @@ const playersSlice = createSlice({
   name: "players",
   initialState,
   reducers: {
-    addNewPlayer: (state) => {
-      console.log(state.availableColors);
+    createInitialPlayers: (state, action) => {
+      const localizedPrefix = action.payload;
+      state.playerList = [
+        {
+          name: localizedPrefix + "1",
+          color: PLAYER_COLORS[0].colorCode,
+          id: uuid.v4(),
+          score: 0,
+        },
+        {
+          name: localizedPrefix + "2",
+          color: PLAYER_COLORS[1].colorCode,
+          id: uuid.v4(),
+          score: 0,
+        },
+      ];
+      refreshColors(state);
+    },
+    addNewPlayer: (state, action) => {
+      const localizedPrefix = action.payload;
       if (state.playerList.length < 10) {
         state.playerList = [
           ...state.playerList,
           {
-            name: "Player " + (state.playerList.length + 1),
+            name: localizedPrefix + (state.playerList.length + 1),
             color:
               state.availableColors[
                 Math.floor(Math.random() * state.availableColors.length)
@@ -114,6 +118,7 @@ export const {
   managePlayerMenuOn,
   changePlayerName,
   deletePlayer,
+  createInitialPlayers,
 } = playersSlice.actions;
 
 export default playersSlice.reducer;

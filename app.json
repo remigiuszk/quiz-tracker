@@ -29,7 +29,10 @@
       "eas": {
         "projectId": "f6110326-4d91-472b-9daf-f1713a363e77"
       }
-    }
+    },
+    "plugins": [
+      "expo-localization"
+    ]
   },
   "androidStatusBar": {
     "translucent": true
