@@ -6,7 +6,8 @@ const DefaultButton = ({
   text,
   width = "100%",
   height = "20%",
-  action,
+  action = null,
+  onPress = null,
   secondaryColor = false,
 }) => {
   const dispatch = useDispatch();
@@ -22,7 +23,12 @@ const DefaultButton = ({
       <Pressable
         android_ripple={{ color: "#dddddd" }}
         onPress={() => {
-          dispatch(action);
+          if (action !== null) {
+            dispatch(action);
+          }
+          if (onPress !== null) {
+            onPress();
+          }
         }}
         style={styles.pressable}
       >

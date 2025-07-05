@@ -1,13 +1,11 @@
-import { Button, Modal, StyleSheet, View } from "react-native";
+import { Alert, Modal, StyleSheet, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
   decrementPlayerScore,
   deletePlayer,
   managePlayerMenuOff,
-  resetPlayers,
 } from "../../state/players/playersSlice";
 import NameChange from "./menuOptions/nameChange";
-import * as NavigationBar from "expo-navigation-bar";
 import { useEffect } from "react";
 import { THEME, SHADOW_STYLES } from "../../constants";
 import DefaultButton from "../shared/buttons/defaultButton";
@@ -17,10 +15,28 @@ const ManagePlayerMenu = () => {
   const showModal = useSelector((state) => state.players.managePlayerModalOn);
   const managedPlayer = useSelector((state) => state.players.manageModalPlayer);
   const localization = useLocalization();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log(showModal);
   }, [showModal]);
+
+  const deleteConfirmationAlert = () => {
+    Alert.alert(
+      localization.DELETE_PLAYER_ALERT_TITLE,
+      localization.DELETE_PLAYER_ALERT_MSG + managedPlayer?.name + "?",
+      [
+        {
+          text: localization.DELETE_PLAYER_ALERT_YES,
+          onPress: () => dispatch(deletePlayer(managedPlayer.id)),
+        },
+        {
+          text: localization.DELETE_PLAYER_ALERT_NO,
+          style: "cancel",
+        },
+      ]
+    );
+  };
 
   return (
     <Modal
@@ -38,7 +54,7 @@ const ManagePlayerMenu = () => {
             width="90%"
           ></DefaultButton>
           <DefaultButton
-            action={deletePlayer(managedPlayer?.id)}
+            onPress={deleteConfirmationAlert}
             text={localization.DELETE_PLAYER}
             width="90%"
           ></DefaultButton>

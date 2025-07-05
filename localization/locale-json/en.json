@@ -3,5 +3,9 @@
   "player": "Player ",
   "decrementScore": "Decrement player score",
   "deletePlayer": "Delete player",
-  "closeWindow": "Close window"
+  "closeWindow": "Close window",
+  "deletePlayerAlertTitle": "Delete a player",
+  "deletePlayerAlertMsg": "Are you sure you want to delete ",
+  "deletePlayerAlertYes": "Yes",
+  "deletePlayerAlertNo": "No"
 }

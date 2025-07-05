@@ -3,5 +3,9 @@
   "player": "Gracz ",
   "decrementScore": "Zmniejsz wynik gracza",
   "deletePlayer": "Usuń gracza",
-  "closeWindow": "Zamknij okno"
+  "closeWindow": "Zamknij okno",
+  "deletePlayerAlertTitle": "Usunięcie gracza",
+  "deletePlayerAlertMsg": "Czy na pewno chcesz usunąć gracza ",
+  "deletePlayerAlertYes": "Tak",
+  "deletePlayerAlertNo": "Nie"
 }
