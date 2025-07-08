@@ -1,5 +1,4 @@
 {
-  "greeting": "Welcome to quiz tracker!",
   "player": "Player ",
   "decrementScore": "Decrement player score",
   "deletePlayer": "Delete player",
@@ -7,5 +6,8 @@
   "deletePlayerAlertTitle": "Delete a player",
   "deletePlayerAlertMsg": "Are you sure you want to delete ",
   "deletePlayerAlertYes": "Yes",
-  "deletePlayerAlertNo": "No"
+  "deletePlayerAlertNo": "No",
+  "helpHeader": "Welcome to quiz tracker!",
+  "helpParagraph1": "Come up with your own rules for a game, and QuizTrakcer will make it easy to track scores and let you focus on the fun. You won't find questions here but i",
+  "helpParagraph2": ""
 }

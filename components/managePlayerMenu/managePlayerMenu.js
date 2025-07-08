@@ -1,4 +1,4 @@
-import { Alert, Modal, StyleSheet, View } from "react-native";
+import { Alert, KeyboardAvoidingView, Modal, StyleSheet, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
   decrementPlayerScore,
@@ -45,7 +45,7 @@ const ManagePlayerMenu = () => {
       animationType="slide"
       statusBarTranslucent={true}
     >
-      <View style={styles.backdrop}>
+      <KeyboardAvoidingView style={styles.backdrop}>
         <View style={[styles.container, SHADOW_STYLES.default]}>
           <NameChange />
           <DefaultButton
@@ -65,7 +65,7 @@ const ManagePlayerMenu = () => {
             secondaryColor={true}
           ></DefaultButton>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 };
