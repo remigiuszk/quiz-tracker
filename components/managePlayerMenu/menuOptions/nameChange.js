@@ -38,11 +38,9 @@ const NameChange = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 6,
     flexDirection: "row",
     justifyContent: "center",
     alignContent: "center",
-    gap: 12,
   },
   input: {
     width: "60%",

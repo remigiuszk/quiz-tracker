@@ -1,4 +1,12 @@
-import { Alert, Modal, StyleSheet, View } from "react-native";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  View,
+  KeyboardAvoidingView,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
   decrementPlayerScore,
@@ -6,7 +14,7 @@ import {
   managePlayerMenuOff,
 } from "../../state/players/playersSlice";
 import NameChange from "./menuOptions/nameChange";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { THEME, SHADOW_STYLES } from "../../constants";
 import DefaultButton from "../shared/buttons/defaultButton";
 import { useLocalization } from "../../hooks/useLocalization";
@@ -16,10 +24,16 @@ const ManagePlayerMenu = () => {
   const managedPlayer = useSelector((state) => state.players.manageModalPlayer);
   const localization = useLocalization();
   const dispatch = useDispatch();
+  const [kbd, setKbd] = useState(false);
 
   useEffect(() => {
-    console.log(showModal);
-  }, [showModal]);
+    const sh = Keyboard.addListener("keyboardDidShow", () => setKbd(true));
+    const hd = Keyboard.addListener("keyboardDidHide", () => setKbd(false));
+    return () => {
+      sh.remove();
+      hd.remove();
+    };
+  }, []);
 
   const deleteConfirmationAlert = () => {
     Alert.alert(
@@ -45,27 +59,39 @@ const ManagePlayerMenu = () => {
       animationType="slide"
       statusBarTranslucent={true}
     >
-      <View style={styles.backdrop}>
-        <View style={[styles.container, SHADOW_STYLES.default]}>
-          <NameChange />
-          <DefaultButton
-            action={decrementPlayerScore()}
-            text={localization.DECREMENT_SCORE}
-            width="90%"
-          ></DefaultButton>
-          <DefaultButton
-            onPress={deleteConfirmationAlert}
-            text={localization.DELETE_PLAYER}
-            width="90%"
-          ></DefaultButton>
-          <DefaultButton
-            action={managePlayerMenuOff()}
-            text={localization.CLOSE_WINDOW}
-            width="90%"
-            secondaryColor={true}
-          ></DefaultButton>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.backdrop}>
+          <View
+            style={[
+              styles.container,
+              SHADOW_STYLES.default,
+              { height: kbd ? "95%" : "80%", padding: kbd ? 0 : 25 },
+            ]}
+          >
+            <NameChange />
+            {!kbd && (
+              <>
+                <DefaultButton
+                  action={decrementPlayerScore()}
+                  text={localization.DECREMENT_SCORE}
+                  width="90%"
+                ></DefaultButton>
+                <DefaultButton
+                  onPress={deleteConfirmationAlert}
+                  text={localization.DELETE_PLAYER}
+                  width="90%"
+                ></DefaultButton>
+              </>
+            )}
+            <DefaultButton
+              action={managePlayerMenuOff()}
+              text={localization.CLOSE_WINDOW}
+              width="90%"
+              secondaryColor={true}
+            ></DefaultButton>
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     </Modal>
   );
 };
@@ -86,7 +112,6 @@ const styles = StyleSheet.create({
     height: "80%",
     backgroundColor: THEME.background4,
     borderRadius: 10,
-    padding: 25,
   },
 });
 
