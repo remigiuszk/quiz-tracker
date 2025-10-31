@@ -11,7 +11,6 @@ const PlayerContextMenu = ({ id, color }) => {
         style={styles.pressable}
         android_ripple={{ color: "#dddddd" }}
         onPress={() => {
-          console.log("action dispatched" + id);
           dispatch(managePlayerMenuOn(id));
         }}
       >

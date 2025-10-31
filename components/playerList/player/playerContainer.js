@@ -1,10 +1,12 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableHighlight, View } from "react-native";
 import { useEffect, useState } from "react";
 import { THEME, SHADOW_STYLES } from "../../../constants";
 import PlayerName from "./playerName";
 import PlayerTile from "./playerTile";
 import PlayerScore from "./playerScore";
 import PlayerContextMenu from "./playerContextMenu";
+import { useDispatch } from "react-redux";
+import { managePlayerMenuOn } from "../../../state/players/playersSlice";
 
 const PlayerContainer = ({ player, playerCount }) => {
   const [containerDimensions, setContainerDimensions] = useState({
@@ -12,6 +14,7 @@ const PlayerContainer = ({ player, playerCount }) => {
     height: "85%",
     fontSize: 24,
   });
+  const dispatch = useDispatch();
 
   useEffect(() => {
     switch (playerCount) {
@@ -43,33 +46,46 @@ const PlayerContainer = ({ player, playerCount }) => {
   }, [playerCount]);
 
   return (
-    <View
+    <TouchableHighlight
       style={[
-        styles.container,
         {
           width: containerDimensions.width,
           height: containerDimensions.height,
+          borderRadius: 20,
         },
         SHADOW_STYLES.default,
       ]}
+      onLongPress={() => {
+        dispatch(managePlayerMenuOn(player.id));
+      }}
     >
-      <View style={styles.nameContainer}>
-        <View style={{ flex: 1 }} />
-        <PlayerName
-          name={player.name}
-          fontSize={containerDimensions.fontSize}
+      <View
+        style={[
+          styles.container,
+          {
+            width: "100%",
+            height: "100%",
+          },
+          SHADOW_STYLES.default,
+        ]}
+      >
+        <View style={styles.nameContainer}>
+          <View style={{ flex: 1 }} />
+          <PlayerName
+            name={player.name}
+            fontSize={containerDimensions.fontSize}
+          />
+          <PlayerContextMenu id={player.id} color={player.color} />
+        </View>
+        <PlayerTile color={player.color} id={player.id} />
+        <PlayerScore
+          color={player.color}
+          score={player.score}
+          playerCount={playerCount}
         />
-        <PlayerContextMenu id={player.id} color={player.color} />
       </View>
-      <PlayerTile color={player.color} id={player.id} />
-      <PlayerScore
-        color={player.color}
-        score={player.score}
-        playerCount={playerCount}
-      />
-    </View>
+    </TouchableHighlight>
   );
-  ``;
 };
 
 const styles = StyleSheet.create({

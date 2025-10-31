@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import PlayerContainer from "./player/playerContainer";
 import { TEXT_STYLES, THEME } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";

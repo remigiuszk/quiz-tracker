@@ -1,7 +1,7 @@
 import { StyleSheet, View, Image, Pressable } from "react-native";
 import { SHADOW_STYLES } from "../../../constants";
 import { useDispatch } from "react-redux";
-import { incrementPlayerScore } from "../../../state/players/playersSlice";
+import { incrementPlayerScore, managePlayerMenuOn } from "../../../state/players/playersSlice";
 
 const PlayerTile = ({ color, id }) => {
   const dispatch = useDispatch();
@@ -19,6 +19,9 @@ const PlayerTile = ({ color, id }) => {
         android_ripple={{ color: "#dddddd" }}
         onPress={() => {
           dispatch(incrementPlayerScore(id));
+        }}
+        onLongPress={() => {
+          dispatch(managePlayerMenuOn(id));
         }}
       >
         <Image
