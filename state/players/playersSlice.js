@@ -76,6 +76,13 @@ const playersSlice = createSlice({
           : player
       );
     },
+    resetPlayerScore: (state) => {
+      state.playerList = state.playerList.map((player) =>
+        player.id === state.manageModalPlayer.id
+          ? { ...player, score: 0 }
+          : player
+      );
+    },
     managePlayerMenuOn: (state, action) => {
       console.log(state, action);
       state.manageModalPlayer = state.playerList.find(
@@ -114,6 +121,7 @@ export const {
   resetPlayers,
   incrementPlayerScore,
   decrementPlayerScore,
+  resetPlayerScore,
   managePlayerMenuOff,
   managePlayerMenuOn,
   changePlayerName,

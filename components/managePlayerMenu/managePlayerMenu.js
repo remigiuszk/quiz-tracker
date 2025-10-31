@@ -12,6 +12,7 @@ import {
   decrementPlayerScore,
   deletePlayer,
   managePlayerMenuOff,
+  resetPlayerScore,
 } from "../../state/players/playersSlice";
 import NameChange from "./menuOptions/nameChange";
 import { useEffect, useState } from "react";
@@ -65,7 +66,7 @@ const ManagePlayerMenu = () => {
             style={[
               styles.container,
               SHADOW_STYLES.default,
-              { height: kbd ? "95%" : "80%", padding: kbd ? 0 : 25 },
+              { height: kbd ? "95%" : "85%", padding: kbd ? 0 : 40 },
             ]}
           >
             <NameChange />
@@ -74,6 +75,11 @@ const ManagePlayerMenu = () => {
                 <DefaultButton
                   action={decrementPlayerScore()}
                   text={localization.DECREMENT_SCORE}
+                  width="90%"
+                ></DefaultButton>
+                <DefaultButton
+                  action={resetPlayerScore()}
+                  text={localization.RESET_SCORE}
                   width="90%"
                 ></DefaultButton>
                 <DefaultButton

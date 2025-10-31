@@ -2,6 +2,7 @@
   "greeting": "Welcome to quiz tracker!",
   "player": "Player ",
   "decrementScore": "Decrement player score",
+  "resetScore": "Reset player score",
   "deletePlayer": "Delete player",
   "closeWindow": "Close window",
   "deletePlayerAlertTitle": "Delete a player",
