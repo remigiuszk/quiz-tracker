@@ -42,11 +42,11 @@ const ManagePlayerMenu = () => {
       localization.DELETE_PLAYER_ALERT_MSG + managedPlayer?.name + "?",
       [
         {
-          text: localization.DELETE_PLAYER_ALERT_YES,
+          text: localization.ALERT_YES,
           onPress: () => dispatch(deletePlayer(managedPlayer.id)),
         },
         {
-          text: localization.DELETE_PLAYER_ALERT_NO,
+          text: localization.ALERT_NO,
           style: "cancel",
         },
       ]

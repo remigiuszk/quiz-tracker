@@ -7,6 +7,8 @@
   "closeWindow": "Zamknij okno",
   "deletePlayerAlertTitle": "Usunięcie gracza",
   "deletePlayerAlertMsg": "Czy na pewno chcesz usunąć gracza ",
-  "deletePlayerAlertYes": "Tak",
-  "deletePlayerAlertNo": "Nie"
+  "alertYes": "Tak",
+  "alertNo": "Nie",
+  "newGameAlertTitle": "Rozpoczęcie nowej gry",
+  "newGameAlertMsg": "Czy na pewno chcesz rozpocząć nową grę? (Wszystkie wyniki zostaną wyzerowane)"
 }

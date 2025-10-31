@@ -7,6 +7,8 @@ export const AppString = {
   CLOSE_WINDOW: "closeWindow",
   DELETE_PLAYER_ALERT_TITLE: "deletePlayerAlertTitle",
   DELETE_PLAYER_ALERT_MSG: "deletePlayerAlertMsg",
-  DELETE_PLAYER_ALERT_YES: "deletePlayerAlertYes",
-  DELETE_PLAYER_ALERT_NO: "deletePlayerAlertNo",
+  ALERT_YES: "alertYes",
+  ALERT_NO: "alertNo",
+  NEW_GAME_ALERT_TITLE: "newGameAlertTitle",
+  NEW_GAME_ALERT_MSG: "newGameAlertMsg",
 };

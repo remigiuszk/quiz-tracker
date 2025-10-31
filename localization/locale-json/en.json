@@ -7,6 +7,8 @@
   "closeWindow": "Close window",
   "deletePlayerAlertTitle": "Delete a player",
   "deletePlayerAlertMsg": "Are you sure you want to delete ",
-  "deletePlayerAlertYes": "Yes",
-  "deletePlayerAlertNo": "No"
+  "alertYes": "Yes",
+  "alertNo": "No",
+  "newGameAlertTitle": "Starting a new game",
+  "newGameAlertMsg": "Are you sure you want to start a new game? (All scores will be reset)"
 }

@@ -1,4 +1,4 @@
-import { Button, StyleSheet, View } from "react-native";
+import { Alert, Button, StyleSheet, View } from "react-native";
 import { SHADOW_STYLES, THEME } from "../../constants";
 import { useDispatch } from "react-redux";
 import { addNewPlayer, resetPlayers } from "../../state/players/playersSlice";
@@ -6,7 +6,25 @@ import IconButton from "../shared/buttons/iconButton";
 import { useLocalization } from "../../hooks/useLocalization";
 
 const OptionsBar = () => {
+  const dispatch = useDispatch();
   const localization = useLocalization();
+
+  const newGameConfirmationAlert = () => {
+      Alert.alert(
+        localization.NEW_GAME_ALERT_TITLE,
+        localization.NEW_GAME_ALERT_MSG,
+        [
+          {
+            text: localization.ALERT_YES,
+            onPress: () => dispatch(resetPlayers()),
+          },
+          {
+            text: localization.ALERT_NO,
+            style: "cancel",
+          },
+        ]
+      );
+    };
 
   return (
     <View style={[styles.optionsBarContainer, SHADOW_STYLES.shadowBottom]}>
@@ -18,13 +36,14 @@ const OptionsBar = () => {
       />
       <IconButton
         iconName="newGame"
-        action={resetPlayers()}
+        action={newGameConfirmationAlert}
         width="60"
         height="60"
       />
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   optionsBarContainer: {
     width: "100%",
