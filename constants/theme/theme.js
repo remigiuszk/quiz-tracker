@@ -14,13 +14,13 @@ export const PLAYER_COLORS = [
 ];
 
 const blendWithWhite = (opacityPercentage) =>
-  tinycolor.mix("#ffffff", "#121212", 100 - opacityPercentage).toHexString();
+  tinycolor.mix("#ffffff", "#0d1012", 100 - opacityPercentage).toHexString();
 
 export const THEME = {
-  backgroundBase: "#121212",
-  background1: blendWithWhite(5),
-  background2: blendWithWhite(7),
-  background3: blendWithWhite(9),
+  backgroundBase: "#0d1012",
+  background1: blendWithWhite(2),
+  background2: blendWithWhite(2),
+  background3: blendWithWhite(4),
   background4: blendWithWhite(11),
   background5: blendWithWhite(13),
   background6: blendWithWhite(15),

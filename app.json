@@ -21,7 +21,11 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.dzem0r.quiztracker",
-      "softwareKeyboardLayoutMode": "pan"
+      "androidStatusBar": {
+        "translucent": false,
+        "backgroundColor": "#111111",
+        "barStyle": "light-content"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -31,12 +35,6 @@
         "projectId": "f6110326-4d91-472b-9daf-f1713a363e77"
       }
     },
-    "plugins": [
-      "expo-localization",
-      "expo-font"
-    ]
-  },
-  "androidStatusBar": {
-    "translucent": true
+    "plugins": ["expo-localization", "expo-font"]
   }
 }

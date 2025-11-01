@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PLAYER_COLORS } from "../../constants";
 import uuid from "react-native-uuid";
-import { useLocalization } from "../../hooks/useLocalization";
 
 const initialState = {
   playerList: [],
@@ -84,12 +83,10 @@ const playersSlice = createSlice({
       );
     },
     managePlayerMenuOn: (state, action) => {
-      console.log(state, action);
       state.manageModalPlayer = state.playerList.find(
         (player) => player.id === action.payload
       );
       state.managePlayerModalOn = true;
-      console.log(state);
     },
     managePlayerMenuOff: (state) => {
       return {

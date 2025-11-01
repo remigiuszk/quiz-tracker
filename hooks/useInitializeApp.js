@@ -9,7 +9,6 @@ export default function useInitializeApp() {
 
   useEffect(() => {
     lockOrientation();
-    initLayout();
     loadFont();
   }, []);
 

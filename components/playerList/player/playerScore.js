@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   scoreInput: {
-    fontSize: 30,
+    fontSize: 24,
     textAlign: "center",
     fontFamily: "DigitalClock",
     letterSpacing: 4,

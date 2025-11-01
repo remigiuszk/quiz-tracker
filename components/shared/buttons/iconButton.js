@@ -10,6 +10,8 @@ const IconButton = ({ width = "100%", height = "20%", action, iconName }) => {
       return require("../../../assets/img/icons/new_player.png");
     if (iconName === "newGame")
       return require("../../../assets/img/icons/new_game.png");
+    if (iconName === "help")
+      return require("../../../assets/img/icons/help.png");
     return null; // fallback
   };
 
@@ -37,7 +39,8 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    padding:6
+    padding:6,
+    marginBottom:12
   },
   editIcon: { flex: 1, resizeMode: "contain", width: "100%", height: "100%" },
 });
