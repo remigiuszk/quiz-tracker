@@ -11,4 +11,10 @@ export const AppString = {
   ALERT_NO: "alertNo",
   NEW_GAME_ALERT_TITLE: "newGameAlertTitle",
   NEW_GAME_ALERT_MSG: "newGameAlertMsg",
+  HELP_MENU_TITLE: "helpMenuTitle",
+  HELP_MENU_WHATS_THIS_Q: "helpMenuWhatIsThisQ",
+  HELP_MENU_WHATS_THIS_A: "helpMenuWhatIsThisA",
+  HELP_MENU_WHAT_DO_YOU_MEAN_Q: "helpMenuWhatDoYouMeanQ",
+  HELP_MENU_WHAT_DO_YOU_MEAN_A: "helpMenuWhatDoYouMeanA",
+  HELP_MENU_CLOSE: "helpMenuClose",
 };

@@ -1,5 +1,4 @@
 {
-  "greeting": "Witaj w quiz tracker!",
   "player": "Gracz ",
   "decrementScore": "Zmniejsz wynik gracza",
   "resetScore": "Zresetuj wynik gracza",
@@ -10,5 +9,12 @@
   "alertYes": "Tak",
   "alertNo": "Nie",
   "newGameAlertTitle": "Rozpoczęcie nowej gry",
-  "newGameAlertMsg": "Czy na pewno chcesz rozpocząć nową grę? (Wszystkie wyniki zostaną wyzerowane)"
+  "newGameAlertMsg": "Czy na pewno chcesz rozpocząć nową grę? (Wszystkie wyniki zostaną wyzerowane)",
+  "helpMenuTitle": "Witaj w QuizTracker!",
+  "helpMenuWhatIsThisQ": "Co to w ogóle jest za aplikacja?",
+  "helpMenuWhatIsThisA": "Quiz Tracker to narzędzie do zapisywania wyników w quizach. Nie znajdziesz tutaj gotowej gry lub pytań, jest to jedynie pomoc do oganizowania Twojej własnej spersonalizowanej zabawy. Wykorzystaj gry które znasz lub wymyśl coś zupełnie nowego, wszystko zależy od Ciebie!",
+  "helpMenuWhatDoYouMeanQ": "Jak to nie ma gry, to jak z tego w ogóle korzystać?",
+  "helpMenuWhatDoYouMeanA": "Możesz np: poprosić chatbota AI o wygenerowanie pytań i urządzić teleturniej dla twoich znajomych, skorzystać z filmików typu 'Zgadnij piosenkę na youtube' i użyć aplikacji do śledzenia wyników, możesz sam wymyślić pytania, na które tylko twoi znajomi będą znali odpowiedź - taki wasz osobisty quiz. Możliwości jest nieskończoność, kumasz już?",
+  "helpMenuClose": "Kumam! Do dzieła!"
+
 }

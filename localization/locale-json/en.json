@@ -10,5 +10,11 @@
   "alertYes": "Yes",
   "alertNo": "No",
   "newGameAlertTitle": "Starting a new game",
-  "newGameAlertMsg": "Are you sure you want to start a new game? (All scores will be reset)"
+  "newGameAlertMsg": "Are you sure you want to start a new game? (All scores will be reset)",
+  "helpMenuTitle": "Welcome to QuizTracker!",
+  "helpMenuWhatIsThisQ": "What even is this app?",
+  "helpMenuWhatIsThisA": "Quiz Tracker is a tool designed for tracking quiz scores. You won't find a ready o game or questions here. It's a helper for creating your own personalized game. Use already known rules or come up with your own, everything is up to you!",
+  "helpMenuWhatDoYouMeanQ": "What do you mean there is no game, how do I even use it then?",
+  "helpMenuWhatDoYouMeanA": "You can, for example, ask an AI chatbot to generate some questions and have your own gameshow with your friends, use YouTube videos in the style of 'Guess the song' and track scores here, you can come up with questions that only your friends will know the answers to - your own intimate quiz. Possibilities are endless, you got it now?",
+  "helpMenuClose": "Gotcha! Let's do this!"
 }
