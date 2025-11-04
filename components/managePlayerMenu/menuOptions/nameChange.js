@@ -23,6 +23,7 @@ const NameChange = () => {
   return (
     <View style={styles.container}>
       <TextInput
+        maxLength={12}
         style={[
           COMPONENT_STYLES.defaultInput,
           styles.input,

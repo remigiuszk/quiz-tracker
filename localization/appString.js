@@ -17,4 +17,5 @@ export const AppString = {
   HELP_MENU_WHAT_DO_YOU_MEAN_Q: "helpMenuWhatDoYouMeanQ",
   HELP_MENU_WHAT_DO_YOU_MEAN_A: "helpMenuWhatDoYouMeanA",
   HELP_MENU_CLOSE: "helpMenuClose",
+  NO_PLAYERS_MSG: "noPlayersMessage"
 };

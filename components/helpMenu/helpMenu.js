@@ -4,6 +4,7 @@ import DefaultButton from "../shared/buttons/defaultButton";
 import { useLocalization } from "../../hooks/useLocalization";
 import { useSelector } from "react-redux";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { helpModalOff } from "../../state/help/helpSlice";
 
 const HelpMenu = () => {
   const showModal = useSelector((state) => state.help.helpModalOn);
@@ -43,6 +44,7 @@ const HelpMenu = () => {
           </View>
           <View style={styles.buttonContainer}>
             <DefaultButton
+              action={helpModalOff()}
               text={localization.HELP_MENU_CLOSE}
               width="30%"
               height="90%"
@@ -93,9 +95,9 @@ const styles = StyleSheet.create({
     gap: 16,
     width: "100%",
     height: "100%",
-    paddingHorizontal:20,
-    borderRightWidth:0.5,
-    borderRightColor:THEME.background7
+    paddingHorizontal: 20,
+    borderRightWidth: 0.5,
+    borderRightColor: THEME.background7,
   },
   qaContainerR: {
     flex: 1,
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
     gap: 16,
     width: "100%",
     height: "100%",
-    paddingHorizontal:20,
+    paddingHorizontal: 20,
   },
   buttonContainer: {
     flex: 1,

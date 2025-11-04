@@ -23,7 +23,7 @@ const PlayerList = () => {
     return (
       <View style={styles.playersContainer}>
         <Text style={TEXT_STYLES.lightTextLarge}>
-          no players added, add a player to get started
+          {localization.NO_PLAYERS_MSG}
         </Text>
         <DefaultButton
           text="Add new player"
