@@ -15,9 +15,15 @@ export const SHADOW_STYLES = StyleSheet.create({
     shadowRadius: 5.62,
     elevation: 8,
   },
+  subtle: {
+    ...SHADOW_BASE,
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 8,
+  },
   shadowBottom: {
     ...SHADOW_BASE,
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.17,
     shadowRadius: 3,
     elevation: 6,
   },

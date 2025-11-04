@@ -21,7 +21,7 @@ export const THEME = {
   background1: blendWithWhite(2),
   background2: blendWithWhite(2),
   background3: blendWithWhite(4),
-  background4: blendWithWhite(11),
+  background4: blendWithWhite(7),
   background5: blendWithWhite(13),
   background6: blendWithWhite(15),
   background7: blendWithWhite(17),

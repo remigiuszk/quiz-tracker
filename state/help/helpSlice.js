@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  helpModalOn: true,
+  helpModalOn: false,
 };
 
 const helpSlice = createSlice({
-  name: "players",
+  name: "help",
   initialState,
   reducers: {
     helpModalOn: (state) => {

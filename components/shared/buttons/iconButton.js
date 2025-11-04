@@ -1,5 +1,4 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import { COMPONENT_STYLES, TEXT_STYLES, THEME } from "../../../constants";
 import { useDispatch } from "react-redux";
 
 const IconButton = ({ width = "100%", height = "20%", action, iconName }) => {

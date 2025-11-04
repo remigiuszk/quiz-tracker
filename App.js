@@ -10,6 +10,7 @@ import ManagePlayerMenu from "./components/managePlayerMenu/managePlayerMenu";
 import { StatusBar } from "expo-status-bar";
 import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
+import HelpMenu from "./components/helpMenu/helpMenu";
 
 export default function App() {
   const { fontLoaded } = useInitializeApp();
@@ -30,6 +31,7 @@ export default function App() {
             <OptionsBar />
             <PlayerList />
             <ManagePlayerMenu />
+            <HelpMenu />
           </SafeAreaView>
         </I18nextProvider>
       </Provider>
