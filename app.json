@@ -3,7 +3,7 @@
     "name": "quiz-tracker",
     "slug": "quiz-tracker",
     "version": "1.0.0",
-    "orientation": "default",
+    "orientation": "landscape",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -34,14 +34,6 @@
       "eas": {
         "projectId": "f6110326-4d91-472b-9daf-f1713a363e77"
       }
-    },
-    "plugins": [
-      "expo-localization",
-      "expo-font",
-      "expo-screen-orientation",
-      {
-        "initialOrientation": "LANDSCAPE_RIGHT"
-      }
-    ]
+    }
   }
 }
