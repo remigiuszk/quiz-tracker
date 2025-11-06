@@ -3,7 +3,6 @@ import * as ScreenOrientation from "expo-screen-orientation";
 import * as Font from "expo-font";
 
 export default function useInitializeApp() {
-  const [orientation, setOrientation] = useState(1);
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -17,14 +16,6 @@ export default function useInitializeApp() {
     })();
   }, []);
 
-  const lockOrientation = async () => {
-    await ScreenOrientation.lockAsync(
-      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
-    );
-    const o = await ScreenOrientation.getOrientationAsync();
-    setOrientation(o);
-  };
-
   const lockOrientationSafely = async () => {
     try {
       // iOS: to zadziała tylko, jeśli w app.json orientacja zezwala na landscape (patrz sekcja 2)
@@ -33,12 +24,6 @@ export default function useInitializeApp() {
       );
     } catch {
       // jeśli iOS nie pozwala (zła konfiguracja), nie wywalaj aplikacji
-    }
-    try {
-      const current = await ScreenOrientation.getOrientationAsync();
-      setOrientation(current);
-    } catch {
-      setOrientation(null);
     }
   };
 
@@ -53,5 +38,5 @@ export default function useInitializeApp() {
     }
   };
 
-  return { orientation, fontLoaded };
+  return {fontLoaded };
 }
