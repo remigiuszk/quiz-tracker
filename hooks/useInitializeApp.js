@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import * as ScreenOrientation from "expo-screen-orientation";
-import * as NavigationBar from "expo-navigation-bar";
 import * as Font from "expo-font";
 
 export default function useInitializeApp() {
@@ -12,6 +11,12 @@ export default function useInitializeApp() {
     loadFont();
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      await Promise.all([lockOrientationSafely(), loadFont()]);
+    })();
+  }, []);
+
   const lockOrientation = async () => {
     await ScreenOrientation.lockAsync(
       ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
@@ -20,18 +25,32 @@ export default function useInitializeApp() {
     setOrientation(o);
   };
 
-  const initLayout = () => {
-    NavigationBar.setPositionAsync("relative");
-    NavigationBar.setVisibilityAsync("hidden");
-    NavigationBar.setBehaviorAsync("inset-swipe");
-    NavigationBar.setBackgroundColorAsync("black");
+  const lockOrientationSafely = async () => {
+    try {
+      // iOS: to zadziała tylko, jeśli w app.json orientacja zezwala na landscape (patrz sekcja 2)
+      await ScreenOrientation.lockAsync(
+        ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
+      );
+    } catch {
+      // jeśli iOS nie pozwala (zła konfiguracja), nie wywalaj aplikacji
+    }
+    try {
+      const current = await ScreenOrientation.getOrientationAsync();
+      setOrientation(current);
+    } catch {
+      setOrientation(null);
+    }
   };
 
   const loadFont = async () => {
-    await Font.loadAsync({
-      DigitalClock: require("../assets/fonts/ds-digi.ttf"),
-    });
-    setFontLoaded(true);
+    try {
+      await Font.loadAsync({
+        DigitalClock: require("../assets/fonts/ds-digi.ttf"),
+      });
+      setFontLoaded(true);
+    } catch {
+      setFontLoaded(false);
+    }
   };
 
   return { orientation, fontLoaded };
