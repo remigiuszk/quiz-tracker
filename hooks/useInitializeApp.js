@@ -6,11 +6,6 @@ export default function useInitializeApp() {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
-    lockOrientation();
-    loadFont();
-  }, []);
-
-  useEffect(() => {
     (async () => {
       await Promise.all([lockOrientationSafely(), loadFont()]);
     })();
