@@ -8,14 +8,11 @@ export default function useInitializeApp() {
 
   useEffect(() => {
     (async () => {
-      // ANDROID: wymuś landscape na starcie (działa w Expo Go i w buildach)
-      if (Platform.OS === "android") {
-        try {
-          await ScreenOrientation.lockAsync(
-            ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
-          );
-        } catch {}
-      }
+      try {
+        await ScreenOrientation.lockAsync(
+          ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
+        );
+      } catch {}
       await loadFont();
     })();
   }, []);

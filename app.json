@@ -3,7 +3,7 @@
     "name": "quiz-tracker",
     "slug": "quiz-tracker",
     "version": "1.0.0",
-    "orientation": "default",
+    "orientation": "landscape",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -37,13 +37,7 @@
     },
     "plugins": [
       "expo-localization",
-      "expo-font",
-      [
-        "expo-screen-orientation",
-        {
-          "initialOrientation": "LANDSCAPE_RIGHT"
-        }
-      ]
+      "expo-font"
     ]
   }
 }

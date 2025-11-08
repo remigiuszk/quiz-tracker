@@ -16,6 +16,7 @@ const HelpMenu = () => {
       visible={showModal}
       animationType="slide"
       statusBarTranslucent={true}
+      supportedOrientations={['landscape']}
     >
       <SafeAreaView style={styles.backdrop} edges={["top", "left", "right"]}>
         <View style={[SHADOW_STYLES.default, styles.container]}>
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "85%",
-    height: "95%",
+    height: "99%",
     backgroundColor: THEME.background4,
     borderRadius: 25,
   },
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textContainer: {
-    flex: 5,
+    flex: 6,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "flex-start",
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     gap: 16,
     width: "100%",
-    height: "100%",
+    height: "80%",
     paddingHorizontal: 20,
     borderRightWidth: 0.5,
     borderRightColor: THEME.background7,
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     gap: 16,
     width: "100%",
-    height: "100%",
+    height: "80%",
     paddingHorizontal: 20,
   },
   buttonContainer: {

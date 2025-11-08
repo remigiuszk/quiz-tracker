@@ -59,6 +59,7 @@ const ManagePlayerMenu = () => {
       visible={showModal}
       animationType="slide"
       statusBarTranslucent={true}
+      supportedOrientations={["landscape", "portrait"]}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.backdrop}>

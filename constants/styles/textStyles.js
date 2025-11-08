@@ -48,7 +48,7 @@ export const TEXT_STYLES = StyleSheet.create({
   },
   helpTextAnswer: {
     ...HELP_TEXT,
-    fontSize: 16,
+    fontSize: 14,
     color: THEME.textLight,
   },
   helpHeader: {
