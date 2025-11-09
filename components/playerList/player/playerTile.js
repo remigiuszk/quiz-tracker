@@ -21,7 +21,6 @@ const PlayerTile = ({ color, id }) => {
         style={styles.pressable}
         android_ripple={{ color: "#dddddd" }}
         onPress={() => {
-          console.log("onPress fired");
 
           dispatch(incrementPlayerScore(id));
         }}

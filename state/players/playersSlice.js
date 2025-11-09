@@ -62,7 +62,6 @@ const playersSlice = createSlice({
       });
     },
     incrementPlayerScore: (state, action) => {
-      console.log("increment action fired");
       state.playerList = state.playerList.map((player) =>
         player.id === action.payload
           ? { ...player, score: player.score + 1 }
