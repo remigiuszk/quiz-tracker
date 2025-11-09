@@ -16,5 +16,6 @@
   "helpMenuWhatDoYouMeanQ": "What do you mean there is no game, how do I use it then?",
   "helpMenuWhatDoYouMeanA": "You can, for example, ask an AI chatbot to generate some questions and have your own gameshow with your friends, use YouTube videos in the style of 'Guess the song' and track scores here, you can come up with questions that only your friends will know the answers to - your own intimate quiz. Possibilities are endless, you got it now?",
   "helpMenuClose": "Gotcha! Let's do this!",
-  "noPlayersMsg":"no players added, add a player to get started"
+  "noPlayersMsg":"no players added, add a player to get started",
+  "addPlayerMsg":"add new player"
 }

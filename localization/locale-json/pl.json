@@ -16,5 +16,6 @@
   "helpMenuWhatDoYouMeanQ": "💡 Jak to nie ma gry? To jak z tego korzystać?",
   "helpMenuWhatDoYouMeanA": "Możesz np: poprosić chatbota AI o wygenerowanie pytań i urządzić teleturniej dla twoich znajomych, skorzystać z filmików typu 'Zgadnij piosenkę' na Youtube i użyć aplikacji do śledzenia wyników, możesz sam wymyślić pytania, na które tylko twoi znajomi będą znali odpowiedź - taki wasz osobisty quiz. Możliwości jest nieskończoność, kumasz już?",
   "helpMenuClose": "Kumam! Do dzieła!",
-  "noPlayersMsg": "brak dodanych graczy, stwórz nowego gracza aby rozpocząć"
+  "noPlayersMsg": "brak dodanych graczy, stwórz nowego gracza aby rozpocząć",
+  "addPlayerMsg":"dodaj gracza"
 }
