@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "quiz-tracker",
+    "name": "QuizTracker",
     "slug": "quiz-tracker",
     "version": "1.0.0",
     "orientation": "landscape",
@@ -22,6 +22,7 @@
       },
       "package": "com.dzem0r.quiztracker",
       "softwareKeyboardLayoutMode": "pan",
+      "versionCode": 1,
       "androidStatusBar": {
         "translucent": false,
         "backgroundColor": "#111111",

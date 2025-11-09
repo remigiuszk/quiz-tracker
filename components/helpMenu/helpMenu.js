@@ -1,4 +1,4 @@
-import { Modal, StyleSheet, View, Text } from "react-native";
+import { Modal, StyleSheet, View, Text, ScrollView } from "react-native";
 import { THEME, SHADOW_STYLES, TEXT_STYLES } from "../../constants";
 import DefaultButton from "../shared/buttons/defaultButton";
 import { useLocalization } from "../../hooks/useLocalization";
@@ -16,7 +16,7 @@ const HelpMenu = () => {
       visible={showModal}
       animationType="slide"
       statusBarTranslucent={true}
-      supportedOrientations={['landscape']}
+      supportedOrientations={["landscape"]}
     >
       <SafeAreaView style={styles.backdrop} edges={["top", "left", "right"]}>
         <View style={[SHADOW_STYLES.default, styles.container]}>
@@ -27,20 +27,32 @@ const HelpMenu = () => {
           </View>
           <View style={[styles.textContainer]}>
             <View style={styles.qaContainerL}>
-              <Text style={TEXT_STYLES.helpTextQuestion}>
-                {localization.HELP_MENU_WHATS_THIS_Q}
-              </Text>
-              <Text style={TEXT_STYLES.helpTextAnswer}>
-                {localization.HELP_MENU_WHATS_THIS_A}
-              </Text>
+              <ScrollView
+                contentContainerStyle={styles.scrollView}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+              >
+                <Text style={TEXT_STYLES.helpTextQuestion}>
+                  {localization.HELP_MENU_WHATS_THIS_Q}
+                </Text>
+                <Text style={TEXT_STYLES.helpTextAnswer}>
+                  {localization.HELP_MENU_WHATS_THIS_A}
+                </Text>
+              </ScrollView>
             </View>
             <View style={styles.qaContainerR}>
-              <Text style={TEXT_STYLES.helpTextQuestion}>
-                {localization.HELP_MENU_WHAT_DO_YOU_MEAN_Q}
-              </Text>
-              <Text style={TEXT_STYLES.helpTextAnswer}>
-                {localization.HELP_MENU_WHAT_DO_YOU_MEAN_A}
-              </Text>
+              <ScrollView
+                contentContainerStyle={styles.scrollView}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+              >
+                <Text style={TEXT_STYLES.helpTextQuestion}>
+                  {localization.HELP_MENU_WHAT_DO_YOU_MEAN_Q}
+                </Text>
+                <Text style={TEXT_STYLES.helpTextAnswer}>
+                  {localization.HELP_MENU_WHAT_DO_YOU_MEAN_A}
+                </Text>
+              </ScrollView>
             </View>
           </View>
           <View style={styles.buttonContainer}>
@@ -48,7 +60,7 @@ const HelpMenu = () => {
               action={helpModalOff()}
               text={localization.HELP_MENU_CLOSE}
               width="30%"
-              height="90%"
+              height="100%"
             ></DefaultButton>
           </View>
         </View>
@@ -73,6 +85,7 @@ const styles = StyleSheet.create({
     height: "99%",
     backgroundColor: THEME.background4,
     borderRadius: 25,
+    padding:8
   },
   header: {
     width: "100%",
@@ -81,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textContainer: {
-    flex: 6,
+    flex: 7,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "flex-start",
@@ -108,6 +121,13 @@ const styles = StyleSheet.create({
     gap: 16,
     width: "100%",
     height: "80%",
+    paddingHorizontal: 20,
+  },
+  scrollView: {
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    gap: 16,
     paddingHorizontal: 20,
   },
   buttonContainer: {
