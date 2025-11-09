@@ -21,6 +21,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.dzem0r.quiztracker",
+      "softwareKeyboardLayoutMode": "pan",
       "androidStatusBar": {
         "translucent": false,
         "backgroundColor": "#111111",

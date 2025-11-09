@@ -1,7 +1,10 @@
 import { StyleSheet, View, Image, Pressable } from "react-native";
 import { SHADOW_STYLES } from "../../../constants";
 import { useDispatch } from "react-redux";
-import { incrementPlayerScore, managePlayerMenuOn } from "../../../state/players/playersSlice";
+import {
+  incrementPlayerScore,
+  managePlayerMenuOn,
+} from "../../../state/players/playersSlice";
 
 const PlayerTile = ({ color, id }) => {
   const dispatch = useDispatch();
@@ -18,6 +21,8 @@ const PlayerTile = ({ color, id }) => {
         style={styles.pressable}
         android_ripple={{ color: "#dddddd" }}
         onPress={() => {
+          console.log("onPress fired");
+
           dispatch(incrementPlayerScore(id));
         }}
         onLongPress={() => {
@@ -35,7 +40,6 @@ const PlayerTile = ({ color, id }) => {
 
 const styles = StyleSheet.create({
   playerTile: {
-    padding: 16,
     borderRadius: 12,
     overflow: "hidden",
     flex: 2.5,
@@ -44,6 +48,10 @@ const styles = StyleSheet.create({
   playerIcon: { flex: 1, resizeMode: "contain", width: "100%" },
   pressable: {
     flex: 1,
+    width: "100%",
+    heighth: "100%",
+    margin: 0,
+    padding: 0,
   },
 });
 
