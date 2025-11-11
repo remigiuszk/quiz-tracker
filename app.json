@@ -20,7 +20,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0d1012"
       },
-      "package": "com.remsoft.quiztracker",
+      "package": "com.remonedev.quiztracker",
       "softwareKeyboardLayoutMode": "pan",
       "versionCode": 1,
       "androidStatusBar": {
