@@ -59,7 +59,7 @@ const HelpMenu = () => {
             <DefaultButton
               action={helpModalOff()}
               text={localization.HELP_MENU_CLOSE}
-              width="30%"
+              width="45%"
               height="100%"
             ></DefaultButton>
           </View>
