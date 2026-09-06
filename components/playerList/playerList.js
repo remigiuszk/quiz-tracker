@@ -27,7 +27,7 @@ const PlayerList = () => {
         </Text>
         <DefaultButton
           text={localization.ADD_PLAYER_MSG}
-          action={addNewPlayer()}
+          action={addNewPlayer(localization.PLAYER)}
           width="50%"
           height="15%"
         ></DefaultButton>
