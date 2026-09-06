@@ -2,7 +2,7 @@
   "expo": {
     "name": "QuizTracker",
     "slug": "quiz-tracker",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "orientation": "landscape",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -13,16 +13,21 @@
       "backgroundColor": "#0d1012"
     },
     "ios": {
-      "supportsTablet": true
+      "buildNumber": "2",
+      "supportsTablet": false,
+      "bundleIdentifier": "com.remonedev.quiztracker",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0d1012"
       },
-      "package": "com.remonedev.quiztracker",
+      "package": "com.dzem0r.quiztracker",
       "softwareKeyboardLayoutMode": "pan",
-      "versionCode": 2,
+      "versionCode": 3,
       "androidStatusBar": {
         "translucent": false,
         "backgroundColor": "#111111",
@@ -37,9 +42,6 @@
         "projectId": "f6110326-4d91-472b-9daf-f1713a363e77"
       }
     },
-    "plugins": [
-      "expo-localization",
-      "expo-font"
-    ]
+    "plugins": ["expo-localization", "expo-font"]
   }
 }
