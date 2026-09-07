@@ -17,5 +17,12 @@
   "helpMenuWhatDoYouMeanA": "Możesz użyć QuizTrackera do każdego rodzaju quizu: wygeneruj pytania w AI, graj w „Zgadnij piosenkę” na YouTube, albo wymyśl swój własny zestaw pytań tylko dla ekipy. Aplikacja liczy punkty, a Ty decydujesz, jak wygląda zabawa. Możliwości są praktycznie nieograniczone!",
   "helpMenuClose": "Kumam! Do dzieła!",
   "noPlayersMsg": "brak dodanych graczy, stwórz nowego gracza aby rozpocząć",
-  "addPlayerMsg":"dodaj gracza"
+  "addPlayerMsg":"dodaj gracza",
+  "settingsMenuTitle": "Ustawienia",
+  "settingsLayoutLabel": "Układ planszy",
+  "settingsLayoutHorizontal": "Poziomy",
+  "settingsLayoutVertical": "Pionowy",
+  "layoutChoiceTitle": "Który układ planszy preferujesz?",
+  "layoutChoiceHorizontal": "Poziomy (Polecany)",
+  "layoutChoiceVertical": "Pionowy"
 }

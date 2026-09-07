@@ -1,7 +1,13 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
 
-const IconButton = ({ width = "100%", height = "20%", action, iconName }) => {
+const IconButton = ({
+  width = "100%",
+  height = "20%",
+  action,
+  onLongPress,
+  iconName,
+}) => {
   const dispatch = useDispatch();
 
   const getIconSource = (iconName) => {
@@ -11,6 +17,8 @@ const IconButton = ({ width = "100%", height = "20%", action, iconName }) => {
       return require("../../../assets/img/icons/new_game.png");
     if (iconName === "help")
       return require("../../../assets/img/icons/help.png");
+    if (iconName === "settings")
+      return require("../../../assets/img/icons/setting-icon.png");
     return null; // fallback
   };
 
@@ -21,6 +29,7 @@ const IconButton = ({ width = "100%", height = "20%", action, iconName }) => {
         onPress={() => {
           dispatch(action);
         }}
+        onLongPress={onLongPress}
         style={styles.pressable}
       >
         <Image

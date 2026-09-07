@@ -11,6 +11,9 @@ import { StatusBar } from "expo-status-bar";
 import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
 import HelpMenu from "./components/helpMenu/helpMenu";
+import SettingsMenu from "./components/settingsMenu/settingsMenu";
+import LayoutChoiceMenu from "./components/layoutChoiceMenu/layoutChoiceMenu";
+import OrientationSync from "./components/orientationSync/orientationSync";
 
 export default function App() {
   const { fontLoaded } = useInitializeApp();
@@ -22,6 +25,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <Provider store={store}>
+        <OrientationSync />
         <StatusBar translucent={false} backgroundColor={THEME.background1} />
         <I18nextProvider i18n={i18n}>
           <SafeAreaView
@@ -32,6 +36,8 @@ export default function App() {
             <PlayerList />
             <ManagePlayerMenu />
             <HelpMenu />
+            <SettingsMenu />
+            <LayoutChoiceMenu />
           </SafeAreaView>
         </I18nextProvider>
       </Provider>

@@ -75,6 +75,14 @@ const playersSlice = createSlice({
           : player
       );
     },
+    adjustPlayerScore: (state, action) => {
+      const { id, amount } = action.payload;
+      state.playerList = state.playerList.map((player) =>
+        player.id === id
+          ? { ...player, score: player.score + amount }
+          : player
+      );
+    },
     resetPlayerScore: (state) => {
       state.playerList = state.playerList.map((player) =>
         player.id === state.manageModalPlayer.id
@@ -118,6 +126,7 @@ export const {
   resetPlayers,
   incrementPlayerScore,
   decrementPlayerScore,
+  adjustPlayerScore,
   resetPlayerScore,
   managePlayerMenuOff,
   managePlayerMenuOn,

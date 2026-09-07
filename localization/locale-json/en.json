@@ -17,5 +17,12 @@
   "helpMenuWhatDoYouMeanA": "You can use Quiz Tracker in any way you like — for example, ask an AI chatbot to generate questions and host your own gameshow with friends, play YouTube quizzes like “Guess the Song” and track scores here, or create your own set of personal questions that only your group will know. The possibilities are endless — get creative!",
   "helpMenuClose": "Gotcha! Let's do this!",
   "noPlayersMsg":"no players added, add a player to get started",
-  "addPlayerMsg":"add new player"
+  "addPlayerMsg":"add new player",
+  "settingsMenuTitle": "Settings",
+  "settingsLayoutLabel": "Board layout",
+  "settingsLayoutHorizontal": "Horizontal",
+  "settingsLayoutVertical": "Vertical",
+  "layoutChoiceTitle": "Which board layout do you prefer?",
+  "layoutChoiceHorizontal": "Horizontal (Recommended)",
+  "layoutChoiceVertical": "Vertical"
 }

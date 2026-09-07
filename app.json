@@ -3,15 +3,9 @@
     "name": "QuizTracker",
     "slug": "quiz-tracker",
     "version": "1.0.3",
-    "orientation": "landscape",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/adaptive-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#0d1012"
-    },
     "ios": {
       "buildNumber": "2",
       "supportsTablet": false,
@@ -27,12 +21,7 @@
       },
       "package": "com.dzem0r.quiztracker",
       "softwareKeyboardLayoutMode": "pan",
-      "versionCode": 3,
-      "androidStatusBar": {
-        "translucent": false,
-        "backgroundColor": "#111111",
-        "barStyle": "light-content"
-      }
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -42,6 +31,23 @@
         "projectId": "f6110326-4d91-472b-9daf-f1713a363e77"
       }
     },
-    "plugins": ["expo-localization", "expo-font"]
+    "plugins": [
+      "expo-localization",
+      "expo-font",
+      [
+        "expo-status-bar",
+        {
+          "style": "light"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/adaptive-icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#0d1012"
+        }
+      ]
+    ]
   }
 }

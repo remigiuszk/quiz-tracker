@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import PlayerContainer from "./player/playerContainer";
+import PlayerListVertical from "./playerVertical/playerListVertical";
 import { TEXT_STYLES, THEME } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import DefaultButton from "../shared/buttons/defaultButton";
@@ -12,6 +13,7 @@ import { useEffect } from "react";
 
 const PlayerList = () => {
   const players = useSelector((state) => state.players.playerList);
+  const layout = useSelector((state) => state.settings.layout);
   const localization = useLocalization();
   const dispatch = useDispatch();
 
@@ -35,6 +37,10 @@ const PlayerList = () => {
     );
   }
 
+  if (layout === "vertical") {
+    return <PlayerListVertical players={players} />;
+  }
+
   return (
     <View style={styles.playersContainer}>
       {players.map((player) => (
@@ -52,7 +58,7 @@ const styles = StyleSheet.create({
   playersContainer: {
     width: "100%",
     height: "100%",
-    flex: 10,
+    flex: 1,
     backgroundColor: THEME.background1,
     padding: 6,
     flexDirection: "row",

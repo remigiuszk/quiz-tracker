@@ -1,8 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
-import { SHADOW_STYLES, STYLES, THEME } from "../../../constants";
+import { StyleSheet, Text, View, Pressable } from "react-native";
+import { useDispatch } from "react-redux";
+import { SHADOW_STYLES, THEME } from "../../../constants";
+import { adjustPlayerScore } from "../../../state/players/playersSlice";
 
-const PlayerScore = ({ color, score, playerCount }) => {
+const PlayerScore = ({ id, color, score, playerCount }) => {
+  const dispatch = useDispatch();
   const dynamicFlex = playerCount > 3 ? 2 : 1;
+  const fontSize = playerCount > 6 ? 18 : 24;
 
   return (
     <View
@@ -12,31 +16,54 @@ const PlayerScore = ({ color, score, playerCount }) => {
         { borderColor: color, flex: dynamicFlex },
       ]}
     >
-      <Text style={[styles.scoreInput, { color: color }]} editable={false}>
+      <Pressable
+        style={styles.step}
+        android_ripple={{ color: "#dddddd" }}
+        onPress={() => dispatch(adjustPlayerScore({ id, amount: -1 }))}
+      >
+        <Text style={[styles.stepLabel, { color: color }]}>-</Text>
+      </Pressable>
+      <Text style={[styles.scoreInput, { color: color, fontSize: fontSize }]}>
         {score}
       </Text>
+      <Pressable
+        style={styles.step}
+        android_ripple={{ color: "#dddddd" }}
+        onPress={() => dispatch(adjustPlayerScore({ id, amount: 1 }))}
+      >
+        <Text style={[styles.stepLabel, { color: color }]}>+</Text>
+      </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   scoreContainer: {
+    flexDirection: "row",
     height: "100%",
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: THEME.background2,
     padding: 1,
-    borderRadius: 3,
-    width: "40%",
-    borderWidth: 0.3,
+    borderRadius: 14,
+    width: "85%",
+    borderWidth: 1.5,
+    overflow: "hidden",
   },
-  scoreInput: {
-    fontSize: 24,
-    textAlign: "center",
+  step: {
+    flex: 1,
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: THEME.background5,
+  },
+  stepLabel: {
+    fontSize: 18,
+    fontWeight: "700",
+  },
+  scoreInput: {
+    flex: 2,
+    textAlign: "center",
     fontFamily: "DigitalClock",
-    width: "100%",
     backgroundColor: THEME.background2,
   },
 });

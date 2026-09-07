@@ -18,5 +18,12 @@ export const AppString = {
   HELP_MENU_WHAT_DO_YOU_MEAN_A: "helpMenuWhatDoYouMeanA",
   HELP_MENU_CLOSE: "helpMenuClose",
   NO_PLAYERS_MSG: "noPlayersMsg",
-  ADD_PLAYER_MSG: "addPlayerMsg"
+  ADD_PLAYER_MSG: "addPlayerMsg",
+  SETTINGS_MENU_TITLE: "settingsMenuTitle",
+  SETTINGS_LAYOUT_LABEL: "settingsLayoutLabel",
+  SETTINGS_LAYOUT_HORIZONTAL: "settingsLayoutHorizontal",
+  SETTINGS_LAYOUT_VERTICAL: "settingsLayoutVertical",
+  LAYOUT_CHOICE_TITLE: "layoutChoiceTitle",
+  LAYOUT_CHOICE_HORIZONTAL: "layoutChoiceHorizontal",
+  LAYOUT_CHOICE_VERTICAL: "layoutChoiceVertical",
 };
